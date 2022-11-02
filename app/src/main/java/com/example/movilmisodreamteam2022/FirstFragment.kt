@@ -1,5 +1,6 @@
 package com.example.movilmisodreamteam2022
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.movilmisodreamteam2022.databinding.FragmentFirstBinding
+import com.example.movilmisodreamteam2022.CrearArtista
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -35,6 +38,15 @@ class FirstFragment : Fragment() {
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+
+        binding.buttonArtist.setOnClickListener {
+            val context = view.context
+            //val intent = Intent(context, ArtistActivity::class.java)
+            val intent = Intent(context, CrearArtista::class.java)
+            context.startActivity(intent)
+        }
+
+
     }
 
     override fun onDestroyView() {

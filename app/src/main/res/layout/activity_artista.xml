@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    tools:context=".CrearArtista"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:orientation="vertical"
+         >
+        <TextView
+            android:id="@+id/lblNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            />
+        <EditText
+            android:id="@+id/EDNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Introducit aqui el nombre del artista"
+            />
+        <TextView
+            android:id="@+id/lblYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Año de nacimiento"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            />
+        <EditText
+            android:id="@+id/EDYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Introducit aqui el año de nacimiento del artista"
+            />
+        <TextView
+            android:id="@+id/lblSong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Canción favorita hecha por el artista"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            />
+        <EditText
+            android:id="@+id/EDSong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Introducit aqui el nombre de la canción del artista"
+            />
+        <TextView
+            android:id="@+id/lblGenero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Género"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            />
+        <EditText
+            android:id="@+id/EDGenero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Introducit aqui el nombre del género"
+            />
+        <TextView
+            android:id="@+id/lblDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripción"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            />
+        <EditText
+            android:id="@+id/EDDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text|textMultiLine"
+            android:hint="Introducit aqui la descripción"
+            />
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+        <Button
+            android:id="@+id/BtnCrearArtista"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_gravity="right"
+            android:text="Crear"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/orange"
+            android:gravity="center"
+            />
+    </LinearLayout>
+</ScrollView>
