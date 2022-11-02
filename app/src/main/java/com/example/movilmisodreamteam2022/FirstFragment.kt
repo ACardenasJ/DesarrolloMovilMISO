@@ -46,6 +46,13 @@ class FirstFragment : Fragment() {
             context.startActivity(intent)
         }
 
+        binding.buttonAlbum.setOnClickListener {
+            val context = view.context
+            //val intent = Intent(context, ArtistActivity::class.java)
+            val intent = Intent(context, CrearAlbum::class.java)
+            context.startActivity(intent)
+        }
+
 
     }
 

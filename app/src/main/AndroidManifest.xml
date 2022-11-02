@@ -23,6 +23,14 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".CrearAlbum"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
