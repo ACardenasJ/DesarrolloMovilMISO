@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    tools:context=".CrearArtista"
+    tools:context=".ui.CrearArtistaActivity"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:orientation="vertical"
-         >
+        >
         <TextView
             android:id="@+id/lblNombre"
             android:layout_width="match_parent"
@@ -88,7 +88,7 @@
             android:inputType="text|textMultiLine"
             android:hint="Introducit aqui la descripción"
             />
-        <android.support.v4.widget.Space
+        <Space
             android:layout_width="match_parent"
             android:layout_height="100dp"/>
         <Button

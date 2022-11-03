@@ -1,5 +1,6 @@
 package com.example.movilmisodreamteam2022.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movilmisodreamteam2022.R
@@ -15,6 +17,7 @@ import com.example.movilmisodreamteam2022.databinding.FragmentArtistaBinding
 import com.example.movilmisodreamteam2022.models.Banda
 import com.example.movilmisodreamteam2022.ui.adapters.ArtistaAdapter
 import com.example.movilmisodreamteam2022.viewmodels.ArtistaViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class ArtistaFragment : Fragment() {
@@ -23,6 +26,8 @@ class ArtistaFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewModel: ArtistaViewModel
     private var viewModelAdapter: ArtistaAdapter? = null
+    lateinit var addFAB: FloatingActionButton
+    var rtimes: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +43,11 @@ class ArtistaFragment : Fragment() {
         recyclerView = binding.artistasRv
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
+        addFAB = view.findViewById(R.id.fab_add_artist)
+        addFAB.setOnClickListener{
+            val intent = Intent(view.context, CrearArtistaActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -59,6 +69,14 @@ class ArtistaFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(rtimes > 0) {
+            viewModel.refreshDataFromNetwork()
+        }
+        rtimes++
     }
 
     private fun onNetworkError() {

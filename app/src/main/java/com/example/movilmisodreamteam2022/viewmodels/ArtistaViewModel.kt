@@ -2,10 +2,15 @@ package com.example.movilmisodreamteam2022.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.android.volley.VolleyError
 import com.example.movilmisodreamteam2022.models.Banda
 import com.example.movilmisodreamteam2022.network.NetworkServiceAdapter
+import com.example.movilmisodreamteam2022.repositories.ArtistaRepository
+import org.json.JSONObject
 
 class ArtistaViewModel(application: Application) :  AndroidViewModel(application) {
+
+    private val artistaRepository = ArtistaRepository(application)
 
     private val _artistas = MutableLiveData<List<Banda>>()
 
@@ -26,8 +31,19 @@ class ArtistaViewModel(application: Application) :  AndroidViewModel(application
         refreshDataFromNetwork()
     }
 
-    private fun refreshDataFromNetwork() {
-        NetworkServiceAdapter.getInstance(getApplication()).getArtistas({
+    fun crearArtista(body: JSONObject, callback: (JSONObject)->Unit, onError: (VolleyError)->Unit){
+        artistaRepository.postData(body, callback, onError)
+    }
+
+    fun refreshDataFromNetwork() {
+        /*NetworkServiceAdapter.getInstance(getApplication()).getArtistas({
+            _artistas.postValue(it)
+            _eventNetworkError.value = false
+            _isNetworkErrorShown.value = false
+        },{
+            _eventNetworkError.value = true
+        })*/
+        artistaRepository.refreshData({
             _artistas.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false

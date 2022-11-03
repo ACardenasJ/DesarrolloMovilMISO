@@ -43,6 +43,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                               creationDate = item.getString("creationDate"))
                     )
                 }
+                list.sortedByDescending { it.id }
                 onComplete(list)
             },
             Response.ErrorListener {

@@ -1,26 +1,34 @@
-package com.example.movilmisodreamteam2022
-/*
+package com.example.movilmisodreamteam2022.ui
+
 import android.app.Activity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.movilmisodreamteam2022.modelos.BandaModel
+import androidx.lifecycle.ViewModelProvider
+import com.android.volley.Response
+import com.example.movilmisodreamteam2022.R
+import com.example.movilmisodreamteam2022.models.Banda
+import com.example.movilmisodreamteam2022.viewmodels.ArtistaViewModel
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import kotlin.system.measureTimeMillis
 
-class CrearArtista : AppCompatActivity() {
+
+class CrearArtistaActivity : AppCompatActivity() {
     var img_basic: String = "https://cdn.dribbble.com/users/1100029/screenshots/5950588/media/451c0eb8bb7675c9bea0ddc26efece44.png"
+    private lateinit var viewModel: ArtistaViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_artista)
+        setContentView(R.layout.activity_cartista)
         var parentLayout: View = findViewById(android.R.id.content)
         var EDNombre: EditText = findViewById<EditText>(R.id.EDNombre)
         var EDYear: EditText = findViewById<EditText>(R.id.EDYear)
@@ -35,8 +43,8 @@ class CrearArtista : AppCompatActivity() {
             action_Bar.setTitle("CREAR ARTISTA")
             action_Bar.setDisplayHomeAsUpEnabled(true)
         }
-        //supportActionBar?.setTitle("CREAR ARTISTA")
-        //supportActionBar?.setDisplayHomeAsUpEnabled(true);
+
+        viewModel = ViewModelProvider(this, ArtistaViewModel.Factory(this.application)).get(ArtistaViewModel::class.java)
 
 
         BtnCrearArtista.setOnClickListener {
@@ -69,7 +77,42 @@ class CrearArtista : AppCompatActivity() {
     }
 
     fun CrearArtista_(acti: Activity, nombre: String, year:String, fav_song: String, gen: String, desc: String){
-        GlobalScope.launch(Dispatchers.IO){
+
+        val postParams = mapOf<String, Any>(
+            "name" to nombre,
+            "image" to img_basic,
+            "description" to desc,
+            "creationDate" to year+"-01-01T05:00:00.000Z"
+        )
+
+        viewModel.crearArtista(JSONObject(postParams),
+            { response ->
+                var r: String = ""
+                try {
+                    // Display the first 500 characters of the response string.
+                    var reslt: String = response.get("name").toString()
+                    if(reslt == nombre){
+                        r = "Artista creado correctamente"
+                        mostrarMSJ(acti,r)
+                        finish()
+                    }else{
+                        r = "Ha ocurrido un error, volver a intentar..."
+                        mostrarMSJ(acti,r)
+                    }
+                }catch (ex:Exception){
+                    r = "Ha ocurrido un error, volver a intentar..."
+                    mostrarMSJ(acti,r)
+                }
+            },
+            {
+                Log.d("TAG", it.toString())
+                var r: String =  "Ta ocurrido un error, volver a intentar..."
+                mostrarMSJ(acti,r)
+            })
+
+
+
+        /*GlobalScope.launch(Dispatchers.IO){
             val time = measureTimeMillis {
                 val call_funcion = async {ServiceRC().createBand(nombre, year, fav_song, gen, desc, img_basic)}
                 val retorno = call_funcion.await()
@@ -86,35 +129,12 @@ class CrearArtista : AppCompatActivity() {
                     })
                 }
             }
-        }
+        }*/
     }
 
     fun mostrarMSJ(acti: Activity, msj: String){
         runOnUiThread(Runnable {
             Toast.makeText(acti, msj, Toast.LENGTH_LONG).show()
-
         })
     }
-
-    fun ObtenerArtistas_(acti: Activity){
-        GlobalScope.launch(Dispatchers.IO){
-            val time = measureTimeMillis {
-                val call_funcion = async {ServiceRC().getBands()}
-                //Log.d("Crear_Artistas","Tamaño es ${call_funcion.await()}")
-                //val retorno = call_funcion.await()
-                var bandsList: List<BandaModel> = emptyList()
-                bandsList = call_funcion.await()
-                bandsList.forEach {
-                    println("Name:$it.name")
-                    Log.d("Artistas","Banda  ${it.name}")
-                }
-                Log.d("Artistas","Tamaño es ${bandsList.size}")
-                runOnUiThread(Runnable {
-                    Toast.makeText(acti, "Tamaño: ${bandsList.size}",Toast.LENGTH_LONG).show()
-                })
-            }
-        }
-    }
-
-
-}*/
+}
