@@ -1,5 +1,5 @@
 package com.example.movilmisodreamteam2022
-
+/*
 import android.app.Activity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -117,4 +117,4 @@ class CrearArtista : AppCompatActivity() {
     }
 
 
-}
+}*/

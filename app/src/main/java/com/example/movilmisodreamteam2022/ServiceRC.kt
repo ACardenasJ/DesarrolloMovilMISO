@@ -1,12 +1,10 @@
 package com.example.movilmisodreamteam2022
 
 import android.util.Log
-import com.example.movilmisodreamteam2022.modelos.BandaModel
+import com.example.movilmisodreamteam2022.models.Banda
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
@@ -18,8 +16,8 @@ class ServiceRC {
 
     val base_burl : String = "https://backvynils-dtg5.herokuapp.com/"
 
-    suspend fun getBands(): List<BandaModel> {
-        var bandsList: List<BandaModel> = emptyList()
+    suspend fun getBands(): List<Banda> {
+        var bandsList: List<Banda> = emptyList()
         try {
             // Your implementation
             val url = URL(base_burl + "bands")
@@ -30,7 +28,7 @@ class ServiceRC {
                 //val listType: Type = object : TypeToken<Collection<Banda?>?>() {}.type
                 val inputStreamReader = InputStreamReader(inputSystem,"UTF-8")
                 //val Bands = Gson().fromJson(inputStreamReader,listType::class.java)
-                bandsList = Gson().fromJson(inputStreamReader, Array<BandaModel>::class.java).toList()
+                bandsList = Gson().fromJson(inputStreamReader, Array<Banda>::class.java).toList()
                 println(bandsList)
                 //return bandsList
             }
