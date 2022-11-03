@@ -43,7 +43,7 @@ class CrearArtista : AppCompatActivity() {
             //Toast.makeText(this,"CREANDO ARTISTA...",Toast.LENGTH_LONG).show()
             //var src : ServiceRC =  ServiceRC()
             //src.getBands()
-            Snackbar.make(parentLayout, "CREANDO ARTISTA...", Snackbar.LENGTH_LONG).setAction("Action", null).show()
+
 
             var nombre:String = EDNombre.text.toString()
             var year:String = EDYear.text.toString()
@@ -51,7 +51,14 @@ class CrearArtista : AppCompatActivity() {
             var gen:String = EDGenero.text.toString()
             var desc:String = EDDesc.text.toString()
 
-            CrearArtista_(this, nombre, year, fav_song, gen, desc)
+            if(!nombre.isNullOrEmpty() && !year.isNullOrEmpty() && !desc.isNullOrEmpty() ) {
+                Snackbar.make(parentLayout, "CREANDO ARTISTA...", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                CrearArtista_(this, nombre, year, fav_song, gen, desc)
+            }else{
+                Snackbar.make(parentLayout, "LOS VALORES NO PUEDEN SER VACIOS", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+            }
         }
     }
 
@@ -67,13 +74,26 @@ class CrearArtista : AppCompatActivity() {
                 val call_funcion = async {ServiceRC().createBand(nombre, year, fav_song, gen, desc, img_basic)}
                 val retorno = call_funcion.await()
                 println(retorno)
-                Log.d("Artistas","resultado creacion:  ${retorno}")
-                runOnUiThread(Runnable {
-                    Toast.makeText(acti, "Artista Creado",Toast.LENGTH_LONG).show()
-                    finish()
-                })
+                Log.d("Artistas", "resultado creacion:  ${retorno}")
+                if(retorno.contains("OK")) {
+                    runOnUiThread(Runnable {
+                        mostrarMSJ(acti,"Artista creado correctamente")
+                        finish()
+                    })
+                }else{
+                    runOnUiThread(Runnable {
+                        mostrarMSJ(acti,"Error creando Artista: ${retorno}")
+                    })
+                }
             }
         }
+    }
+
+    fun mostrarMSJ(acti: Activity, msj: String){
+        runOnUiThread(Runnable {
+            Toast.makeText(acti, msj, Toast.LENGTH_LONG).show()
+
+        })
     }
 
     fun ObtenerArtistas_(acti: Activity){
