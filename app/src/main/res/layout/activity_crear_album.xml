@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CrearArtista">
+    tools:context=".ui.CrearAlbumActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,17 +14,7 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/card"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Nuevo Album"
-            android:textSize="20dp"
-            android:textStyle="italic"
-            app:cardBackgroundColor="#A39F9F" />
-
-        <android.support.v4.widget.Space
+        <Space
             android:layout_width="match_parent"
             android:layout_height="30dp" />
 
@@ -43,7 +33,7 @@
             android:hint="Introduce aquí el nombre del álbum"
             android:inputType="text" />
 
-        <android.support.v4.widget.Space
+        <Space
             android:layout_width="match_parent"
             android:layout_height="30dp" />
 
@@ -62,7 +52,7 @@
             android:hint="Introduce aquí el año de lanzamiento del álbum"
             android:inputType="number" />
 
-        <android.support.v4.widget.Space
+        <Space
             android:layout_width="match_parent"
             android:layout_height="30dp" />
 
@@ -81,7 +71,7 @@
             android:hint="Introduce aquí el nombre del artista"
             android:inputType="text" />
 
-        <android.support.v4.widget.Space
+        <Space
             android:layout_width="match_parent"
             android:layout_height="30dp" />
 
@@ -100,7 +90,7 @@
             android:hint="Introduce aquí el nombre de la canción"
             android:inputType="text" />
 
-        <android.support.v4.widget.Space
+        <Space
             android:layout_width="match_parent"
             android:layout_height="30dp" />
 
@@ -116,10 +106,10 @@
             android:id="@+id/EDGenero"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Introduce aquí el genero del álbum"
+            android:hint="Introduce aquí el genero [Classical, Salsa, Rock, Folk]"
             android:inputType="text|textMultiLine" />
 
-        <android.support.v4.widget.Space
+        <Space
             android:layout_width="match_parent"
             android:layout_height="30dp" />
 
@@ -138,7 +128,25 @@
             android:hint="Introduce aquí la Descripción"
             android:inputType="text|textMultiLine" />
 
-        <android.support.v4.widget.Space
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/lblrlabel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Sello Discografico"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+        <EditText
+            android:id="@+id/EDRLabel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Introduce el sello discografico [Sony Music, EMI, Discos Fuentes, Elektra, Fania Records]"
+            android:inputType="text|textMultiLine" />
+
+        <Space
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 

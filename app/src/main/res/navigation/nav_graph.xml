@@ -14,6 +14,10 @@
         <action
             android:id="@+id/action_MenuFragment_to_ArtistFragment"
             app:destination="@id/artistaFragment" />
+
+        <action
+            android:id="@+id/action_MenuFragment_to_AlbumFragment"
+            app:destination="@id/albumFragment" />
     </fragment>
 
 
@@ -39,4 +43,18 @@
             android:id="@+id/action_cartistFragment_to_artistFragment"
             app:destination="@id/artistaFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.example.movilmisodreamteam2022.ui.AlbumFragment"
+        android:label="Album"
+        tools:layout="@layout/fragment_album" >
+        <action
+            android:id="@+id/action_albumFragment_to_menuFragment"
+            app:destination="@id/MenuFragment" />
+        <action
+            android:id="@+id/action_albumFragment_to_calbumFragment"
+            app:destination="@id/crear_artistaFragment" />
+    </fragment>
+
 </navigation>

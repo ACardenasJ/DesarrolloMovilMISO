@@ -30,6 +30,14 @@
         android:textSize="22dp"
         android:layout_height="wrap_content"
         android:text="Artista"/>
+
+    <Button
+        android:id="@+id/button_album_m"
+        android:layout_width="match_parent"
+        android:textSize="22dp"
+        android:layout_height="wrap_content"
+        android:text="Album"/>
+
     </LinearLayout>
 
 </FrameLayout>
