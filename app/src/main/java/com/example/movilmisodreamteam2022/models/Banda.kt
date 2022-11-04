@@ -1,6 +1,6 @@
-package com.example.movilmisodreamteam2022.modelos
+package com.example.movilmisodreamteam2022.models
 
-data class BandaModel (
+data class Banda (
     var id: Int = 0,
     var name: String = "",
     var image: String = "",
