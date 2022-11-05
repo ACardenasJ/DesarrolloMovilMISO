@@ -2,7 +2,7 @@ name: Merge any release branch
 on:
   push:
     branches:
-      - 'release/*'
+      - '*'
 jobs:
   merge-branch:
     runs-on: ubuntu-latest
@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@master
 
       - name: Merge now -> main
-        uses: ACardenasJ/merge-branch@master
+        uses: devmasx/merge-branch@master
         with:
           type: now
           target_branch: main
@@ -21,7 +21,7 @@ jobs:
     steps:
       - if: contains(github.event.head_commit.message, 'HU') 
         name: Close Issue
-        uses: ACardenasJ/close-issue@v2
+        uses: devmasx/close-issue@v2
         with:
           comment: |
             El mensaje contine HU.
