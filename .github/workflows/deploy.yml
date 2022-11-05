@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-
       - name: Merge now -> main
         uses: devmasx/merge-branch@master
         with:
@@ -19,10 +18,11 @@ jobs:
   close-issue:
     runs-on: ubuntu-latest
     steps:
-      - if: startsWith(github.event.issue.title, 'ABC-') != 'true'
+      - if: "!contains(github.event.head_commit.message, 'ABC-')"
         name: Close Issue
         uses: peter-evans/close-issue@v2
         with:
+          issue-number: github.event.issue.title
           comment: |
             El mensaje contine HU.
             Auto-closing this issue.
