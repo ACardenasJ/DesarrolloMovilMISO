@@ -1,0 +1,28 @@
+name: Merge any release branch
+on:
+  push:
+    branches:
+      - '*'
+jobs:
+  merge-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Merge now -> main
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: main
+          github_token: ${{ github.token }}
+
+  close-issue:
+    runs-on: ubuntu-latest
+    steps:
+     #- if: "contains(github.event.head_commit.message, 'ABC-')"
+      - name: Close Issue
+        uses: peter-evans/close-issue@v2
+        with:
+          issue-number: ${{github.event.head_commit.message}}
+          comment: |
+            El mensaje contine HU.
+            Auto-closing this issue.

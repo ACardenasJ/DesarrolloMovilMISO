@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MenuFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textview_first_m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_first_fragment" />
+
+    <Button
+        android:id="@+id/button_first_m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        tools:ignore="DuplicateClickableBoundsCheck" />
+
+    <Button
+        android:id="@+id/button_artist_m"
+        android:layout_width="match_parent"
+        android:textSize="22dp"
+        android:layout_height="wrap_content"
+        android:text="Artista"/>
+
+    <Button
+        android:id="@+id/button_album_m"
+        android:layout_width="match_parent"
+        android:textSize="22dp"
+        android:layout_height="wrap_content"
+        android:text="Album"/>
+
+    </LinearLayout>
+
+</FrameLayout>
