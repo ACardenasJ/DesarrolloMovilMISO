@@ -22,7 +22,6 @@ jobs:
         name: Close Issue
         uses: peter-evans/close-issue@v2
         with:
-          issue-number: github.event.issue.title
           comment: |
             El mensaje contine HU.
             Auto-closing this issue.
