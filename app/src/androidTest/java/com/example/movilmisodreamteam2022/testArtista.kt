@@ -32,9 +32,8 @@ class testArtista {
         var cancion  = "animals"
         var des = "Descripcion"
 
-
-        //Cp01
-        //CP09
+        //Cp01 73
+        //CP09 76 82
         //CP16
 
         onView(withId(R.id.EDNombre)).perform(ViewActions.typeText(nombreAlbun.toString()))
