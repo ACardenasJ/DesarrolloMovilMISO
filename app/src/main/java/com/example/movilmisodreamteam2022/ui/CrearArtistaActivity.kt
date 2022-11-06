@@ -2,29 +2,25 @@ package com.example.movilmisodreamteam2022.ui
 
 import android.app.Activity
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.android.volley.Response
 import com.example.movilmisodreamteam2022.R
-import com.example.movilmisodreamteam2022.models.Banda
 import com.example.movilmisodreamteam2022.viewmodels.ArtistaViewModel
-import com.google.android.material.textfield.TextInputEditText
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
+import com.google.android.material.snackbar.Snackbar
 import org.json.JSONObject
-import kotlin.system.measureTimeMillis
 
 
 class CrearArtistaActivity : AppCompatActivity() {
     var img_basic: String = "https://cdn.dribbble.com/users/1100029/screenshots/5950588/media/451c0eb8bb7675c9bea0ddc26efece44.png"
+
+    lateinit var requestTestAlbum: EditText
+
     private lateinit var viewModel: ArtistaViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +33,8 @@ class CrearArtistaActivity : AppCompatActivity() {
         var EDDesc: EditText = findViewById<EditText>(R.id.EDDesc)
         var BtnCrearArtista: Button = findViewById<Button>(R.id.BtnCrearArtista)
         var action_Bar = getSupportActionBar()
+
+        requestTestAlbum = findViewById<EditText>(R.id.lblRequestCrearArtista)
 
         // showing the back button in action bar
         if (action_Bar != null) {
@@ -93,8 +91,11 @@ class CrearArtistaActivity : AppCompatActivity() {
                     var reslt: String = response.get("name").toString()
                     if(reslt == nombre){
                         r = "Artista creado correctamente"
+                        requestTestAlbum.setText(r)
                         mostrarMSJ(acti,r)
-                        finish()
+                        val handler = Handler()
+                        handler.postDelayed(Runnable { finish() }, 2000)
+
                     }else{
                         r = "Ha ocurrido un error, volver a intentar..."
                         mostrarMSJ(acti,r)
@@ -109,27 +110,6 @@ class CrearArtistaActivity : AppCompatActivity() {
                 var r: String =  "Ta ocurrido un error, volver a intentar..."
                 mostrarMSJ(acti,r)
             })
-
-
-
-        /*GlobalScope.launch(Dispatchers.IO){
-            val time = measureTimeMillis {
-                val call_funcion = async {ServiceRC().createBand(nombre, year, fav_song, gen, desc, img_basic)}
-                val retorno = call_funcion.await()
-                println(retorno)
-                Log.d("Artistas", "resultado creacion:  ${retorno}")
-                if(retorno.contains("OK")) {
-                    runOnUiThread(Runnable {
-                        mostrarMSJ(acti,"Artista creado correctamente")
-                        finish()
-                    })
-                }else{
-                    runOnUiThread(Runnable {
-                        mostrarMSJ(acti,"Error creando Artista: ${retorno}")
-                    })
-                }
-            }
-        }*/
     }
 
     fun mostrarMSJ(acti: Activity, msj: String){

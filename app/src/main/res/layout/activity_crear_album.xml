@@ -160,5 +160,18 @@
             android:text="Crear"
             android:textColor="@color/white"
             android:textSize="15dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:id="@+id/lblRequestCrearAlbum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=""
+            android:visibility="gone"
+            android:textSize="20dp"
+            android:textStyle="italic" />
     </LinearLayout>
 </ScrollView>

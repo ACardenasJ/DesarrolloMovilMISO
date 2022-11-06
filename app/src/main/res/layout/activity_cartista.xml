@@ -102,5 +102,18 @@
             android:backgroundTint="@color/orange"
             android:gravity="center"
             />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:id="@+id/lblRequestCrearArtista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=""
+            android:visibility="gone"
+            android:textSize="20dp"
+            android:textStyle="italic" />
     </LinearLayout>
 </ScrollView>

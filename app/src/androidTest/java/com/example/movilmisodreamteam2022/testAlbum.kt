@@ -2,6 +2,7 @@ package com.example.movilmisodreamteam2022
 
 
 
+import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
@@ -32,29 +33,21 @@ class testAlbum {
         var albumYear = "1991"
         var nombreArtista = "Andres Cardenas"
         var cancion  = "animals"
-        var genero  = "salsa"
+        var genero  = "Salsa"
         var des = "Descripcion"
-        var sello = "soni"
-
-    //Cp01
-        //CP09
-        //CP16
+        var sello = "EMI"
 
         onView(withId(R.id.EDNombreAlbum)).perform(ViewActions.typeText(nombreAlbun.toString()))
-        /*onView(withId(R.id.EDYearAlbum)).perform(ViewActions.typeText(albumYear.toString()))
+        onView(withId(R.id.EDYearAlbum)).perform(ViewActions.typeText(albumYear.toString()))
         onView(withId(R.id.EDArtista)).perform(ViewActions.typeText(nombreArtista.toString()))
         onView(withId(R.id.EDCancionPreferida)).perform(ViewActions.typeText(cancion.toString()))
-        onView(withId(R.id.lblGenero)).perform(ViewActions.typeText(genero.toString()))
-        onView(withId(R.id.lblDescrip)).perform(ViewActions.typeText(des.toString()))
+        onView(withId(R.id.EDGenero)).perform(ViewActions.typeText(genero.toString()))
+        onView(withId(R.id.EDDescrip)).perform(ViewActions.typeText(des.toString()))
         onView(withId(R.id.EDRLabel)).perform(ViewActions.typeText(sello.toString()))
-
         Espresso.closeSoftKeyboard()
-
         onView(withId(R.id.BtnCrearAlbum)).perform(click())
-
-        onView(withText("Album creado correctamente")).check(matches(isDisplayed()))
-        */
-        onView(withId(R.id.EDNombreAlbum)).check(matches(withText(nombreAlbun)))
+        onView(withId(R.id.lblRequestCrearAlbum))
+            .check(matches(withText("Album creado correctamente")))
     }
 
 
