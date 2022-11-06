@@ -50,6 +50,10 @@ class MenuFragment : Fragment() {
         binding.buttonAlbumM.setOnClickListener {
             findNavController().navigate(R.id.action_MenuFragment_to_AlbumFragment)
         }
+
+        binding.buttonColeccionistaM.setOnClickListener {
+            findNavController().navigate(R.id.action_MenuFragment_to_ColeccionistaFragment)
+        }
     }
 
     override fun onDestroyView() {
