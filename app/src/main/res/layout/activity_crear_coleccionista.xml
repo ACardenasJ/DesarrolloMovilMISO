@@ -90,6 +90,17 @@
             android:textColor="@color/white"
             android:textSize="15dp" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:id="@+id/lblRequestCrearColeccinista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:inputType="number" />
+
     </LinearLayout>
 </ScrollView>
 

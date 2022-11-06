@@ -2,12 +2,15 @@ package com.example.movilmisodreamteam2022.ui
 
 import android.app.Activity
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.os.Handler
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.android.volley.Response
@@ -24,7 +27,10 @@ import kotlin.system.measureTimeMillis
 
 class CrearAlbumActivity : AppCompatActivity() {
     var cover_basic: String = "https://cdn.dribbble.com/users/1100029/screenshots/5950588/media/451c0eb8bb7675c9bea0ddc26efece44.png"
-    var resultado: String = ""
+
+
+    lateinit var requestTest: EditText
+
     private lateinit var viewModel: AlbumViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +46,7 @@ class CrearAlbumActivity : AppCompatActivity() {
         var BtnCrearAlbum: Button = findViewById<Button>(R.id.BtnCrearAlbum)
         var action_Bar = getSupportActionBar()
 
-
-
+        requestTest = findViewById<EditText>(R.id.lblRequestCrearAlbum)
 
         // showing the back button in action bar
         if (action_Bar != null) {
@@ -53,10 +58,6 @@ class CrearAlbumActivity : AppCompatActivity() {
 
 
         BtnCrearAlbum.setOnClickListener {
-            //Toast.makeText(this,"CREANDO ARTISTA...",Toast.LENGTH_LONG).show()
-            //var src : ServiceRC =  ServiceRC()
-            //src.getBands()
-
 
             var nombre:String = EDNombreAlbum.text.toString().trim()
             var year:String = EDYearAlbum.text.toString().trim()
@@ -77,7 +78,6 @@ class CrearAlbumActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         finish()
-        //return super.onSupportNavigateUp()
         return true
     }
 
@@ -100,9 +100,10 @@ class CrearAlbumActivity : AppCompatActivity() {
                     var reslt: String = response.get("name").toString()
                     if(reslt == name){
                         r = "Album creado correctamente"
-
+                        requestTest.setText(r)
                         mostrarMSJ(acti,r)
-                        finish()
+                        val handler = Handler()
+                        handler.postDelayed(Runnable { finish() }, 2000)
                     }else{
                         r = "Ha ocurrido un error, volver a intentar..."
                         mostrarMSJ(acti,r)
@@ -120,9 +121,9 @@ class CrearAlbumActivity : AppCompatActivity() {
     }
 
     fun mostrarMSJ(acti: Activity, msj: String){
-        this.resultado = msj
         runOnUiThread(Runnable {
             Toast.makeText(acti, msj, Toast.LENGTH_LONG).show()
+
         })
     }
 }

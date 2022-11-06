@@ -2,8 +2,6 @@ package com.example.movilmisodreamteam2022
 
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
@@ -14,6 +12,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 
@@ -24,28 +23,24 @@ class testArtista {
     val activityRule = ActivityTestRule(CrearArtistaActivity::class.java)
 
     @Test
-    fun testCreateAlbum() {
+    fun testCreateArtista() {
 
-        var nombreAlbun = "AndresAlbum"
-        var albumYear = "1991"
-        var nombreArtista = "Andres Cardenas"
-        var cancion  = "animals"
+        var nombre = "AndresAlbum"
+        var year = "1991"
+        var song = "otro dia para morir"
+        var genero  = "pop"
         var des = "Descripcion"
-        
-        //CP16 82
 
-        onView(withId(R.id.EDNombre)).perform(ViewActions.typeText(nombreAlbun.toString()))
-        onView(withId(R.id.EDYear)).perform(ViewActions.typeText(albumYear.toString()))
-        onView(withId(R.id.EDSong)).perform(ViewActions.typeText(nombreArtista.toString()))
-        onView(withId(R.id.EDGenero)).perform(ViewActions.typeText(cancion.toString()))
+
+
+        onView(withId(R.id.EDNombre)).perform(ViewActions.typeText(nombre.toString()))
+        onView(withId(R.id.EDYear)).perform(ViewActions.typeText(year.toString()))
+        onView(withId(R.id.EDSong)).perform(ViewActions.typeText(song.toString()))
+        onView(withId(R.id.EDGenero)).perform(ViewActions.typeText(genero.toString()))
         onView(withId(R.id.EDDesc)).perform(ViewActions.typeText(des.toString()))
-
         Espresso.closeSoftKeyboard()
-
         onView(withId(R.id.BtnCrearArtista)).perform(click())
-
-//        onView(withText("Album creado correctamente")).check(matches(isDisplayed()))
-//
-        //onView(withId(R.id.EDNombreAlbum)).check(ViewAssertions.matches(withText(nombreAlbun)))
+        onView(withId(R.id.lblRequestCrearArtista))
+            .check(matches(withText("Artista creado correctamente")))
     }
 }
