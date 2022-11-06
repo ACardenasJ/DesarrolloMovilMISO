@@ -24,6 +24,7 @@ import kotlin.system.measureTimeMillis
 
 class CrearAlbumActivity : AppCompatActivity() {
     var cover_basic: String = "https://cdn.dribbble.com/users/1100029/screenshots/5950588/media/451c0eb8bb7675c9bea0ddc26efece44.png"
+    var resultado: String = ""
     private lateinit var viewModel: AlbumViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +39,9 @@ class CrearAlbumActivity : AppCompatActivity() {
         var EDRLabel: EditText = findViewById<EditText>(R.id.EDRLabel)
         var BtnCrearAlbum: Button = findViewById<Button>(R.id.BtnCrearAlbum)
         var action_Bar = getSupportActionBar()
+
+
+
 
         // showing the back button in action bar
         if (action_Bar != null) {
@@ -96,6 +100,7 @@ class CrearAlbumActivity : AppCompatActivity() {
                     var reslt: String = response.get("name").toString()
                     if(reslt == name){
                         r = "Album creado correctamente"
+
                         mostrarMSJ(acti,r)
                         finish()
                     }else{
@@ -115,6 +120,7 @@ class CrearAlbumActivity : AppCompatActivity() {
     }
 
     fun mostrarMSJ(acti: Activity, msj: String){
+        this.resultado = msj
         runOnUiThread(Runnable {
             Toast.makeText(acti, msj, Toast.LENGTH_LONG).show()
         })
