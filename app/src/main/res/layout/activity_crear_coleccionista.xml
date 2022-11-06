@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CrearColeccionistaActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+
+        <TextView
+            android:id="@+id/lblNombreColeccionista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Nombre del coleccionista"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/EDNombreColeccionista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Introduce aquí el nombre del coleccionista"
+            android:inputType="text" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="email"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/EDEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Introduce aquí el email del coleccionista"
+            android:inputType="text" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/lblCellphoneColeccionista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Numero de celular del coleccionista"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/EDCellphoneColeccionista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Introduce aquí el numero de celular"
+            android:inputType="number" />
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/BtnCrearColeccionista"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_gravity="right"
+            android:backgroundTint="@color/orange"
+            android:gravity="center"
+            android:text="Crear"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+</ScrollView>
+
+
+

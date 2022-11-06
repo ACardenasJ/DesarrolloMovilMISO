@@ -32,6 +32,14 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ui.CrearColeccionistaActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true"
             android:label="@string/app_name"

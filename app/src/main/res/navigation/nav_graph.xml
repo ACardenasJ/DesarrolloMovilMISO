@@ -18,6 +18,10 @@
         <action
             android:id="@+id/action_MenuFragment_to_AlbumFragment"
             app:destination="@id/albumFragment" />
+
+        <action
+            android:id="@+id/action_MenuFragment_to_ColeccionistaFragment"
+            app:destination="@id/coleccionistaFragment" />
     </fragment>
 
 
@@ -55,6 +59,16 @@
         <action
             android:id="@+id/action_albumFragment_to_calbumFragment"
             app:destination="@id/crear_artistaFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/coleccionistaFragment"
+        android:name="com.example.movilmisodreamteam2022.ui.ColeccionistaFragment"
+        android:label="Coleccionista"
+        tools:layout="@layout/fragment_coleccionista" >
+        <action
+            android:id="@+id/action_coleccionistaFragment_to_menuFragment"
+            app:destination="@id/MenuFragment" />
     </fragment>
 
 </navigation>
