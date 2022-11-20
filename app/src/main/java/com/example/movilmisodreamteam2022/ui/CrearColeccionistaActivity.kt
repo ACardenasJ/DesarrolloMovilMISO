@@ -60,7 +60,7 @@ class CrearColeccionistaActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
                 CrearColeccionista_(this, nombre, email, cellphone)
             }else{
-                Snackbar.make(parentLayout, "LOS VALORES NO PUEDEN SER VACIOS", Snackbar.LENGTH_LONG)
+                Snackbar.make(parentLayout, "Ninguno de los 3 campos entre el email, el nombre o el  número de celular puede ser vacio", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
             }
         }
