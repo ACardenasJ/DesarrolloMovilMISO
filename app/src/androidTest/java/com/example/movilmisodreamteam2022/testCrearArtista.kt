@@ -1,5 +1,6 @@
 package com.example.movilmisodreamteam2022
 
+
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -13,7 +14,6 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
-import com.example.movilmisodreamteam2022.ui.adapters.ArtistaAdapter
 import org.hamcrest.CoreMatchers.containsString
 
 @LargeTest
@@ -43,6 +43,8 @@ class testCrearArtista {
         onView(withId(R.id.lblRequestCrearArtista))
             .check(matches(withText("Artista creado correctamente")))
     }
+
+
 
 
 }
