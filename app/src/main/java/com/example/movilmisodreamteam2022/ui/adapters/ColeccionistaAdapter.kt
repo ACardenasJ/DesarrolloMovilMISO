@@ -4,15 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movilmisodreamteam2022.R
-import com.example.movilmisodreamteam2022.databinding.AlbumItemBinding
-import com.example.movilmisodreamteam2022.databinding.ArtistItemBinding
 import com.example.movilmisodreamteam2022.databinding.ColeccionistaItemBinding
-import com.example.movilmisodreamteam2022.models.Album
 import com.example.movilmisodreamteam2022.models.Coleccionista
-import com.example.movilmisodreamteam2022.ui.AlbumFragmentDirections
+
 
 class ColeccionistaAdapter : RecyclerView.Adapter<ColeccionistaAdapter.ColeccionistaViewHolder>(){
     var coleccionistas : List<Coleccionista> = emptyList()

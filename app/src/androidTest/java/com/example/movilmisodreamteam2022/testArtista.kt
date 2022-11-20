@@ -28,7 +28,6 @@ class testArtista {
         var nombre = "AndresAlbum"
         var year = "1991"
         var song = "otro dia para morir"
-        var genero  = "pop"
         var des = "Descripcion"
 
 
@@ -36,7 +35,6 @@ class testArtista {
         onView(withId(R.id.EDNombre)).perform(ViewActions.typeText(nombre.toString()))
         onView(withId(R.id.EDYear)).perform(ViewActions.typeText(year.toString()))
         onView(withId(R.id.EDSong)).perform(ViewActions.typeText(song.toString()))
-        onView(withId(R.id.EDGenero)).perform(ViewActions.typeText(genero.toString()))
         onView(withId(R.id.EDDesc)).perform(ViewActions.typeText(des.toString()))
         Espresso.closeSoftKeyboard()
         onView(withId(R.id.BtnCrearArtista)).perform(click())

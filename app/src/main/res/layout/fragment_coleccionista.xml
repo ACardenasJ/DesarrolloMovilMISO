@@ -18,6 +18,8 @@
         android:id="@+id/coleccionistasRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="150px"
+        android:layout_marginBottom="10px"
         tools:listitem="@layout/coleccionista_item"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
