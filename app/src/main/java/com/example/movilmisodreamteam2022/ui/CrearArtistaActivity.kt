@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.movilmisodreamteam2022.R
@@ -29,12 +27,18 @@ class CrearArtistaActivity : AppCompatActivity() {
         var EDNombre: EditText = findViewById<EditText>(R.id.EDNombre)
         var EDYear: EditText = findViewById<EditText>(R.id.EDYear)
         var EDSong: EditText = findViewById<EditText>(R.id.EDSong)
-        var EDGenero: EditText = findViewById<EditText>(R.id.EDGenero)
         var EDDesc: EditText = findViewById<EditText>(R.id.EDDesc)
         var BtnCrearArtista: Button = findViewById<Button>(R.id.BtnCrearArtista)
         var action_Bar = getSupportActionBar()
 
         requestTestAlbum = findViewById<EditText>(R.id.lblRequestCrearArtista)
+
+        var spinnerGenero: Spinner = findViewById<Spinner>(R.id.spinnerArtistaGenero)
+        ArrayAdapter.createFromResource(this, R.array.generoMusical, android.R.layout.simple_spinner_item)
+            .also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerGenero.adapter = adapter
+            }
 
         // showing the back button in action bar
         if (action_Bar != null) {
@@ -46,18 +50,14 @@ class CrearArtistaActivity : AppCompatActivity() {
 
 
         BtnCrearArtista.setOnClickListener {
-            //Toast.makeText(this,"CREANDO ARTISTA...",Toast.LENGTH_LONG).show()
-            //var src : ServiceRC =  ServiceRC()
-            //src.getBands()
-
 
             var nombre:String = EDNombre.text.toString()
             var year:String = EDYear.text.toString()
             var fav_song:String = EDSong.text.toString()
-            var gen:String = EDGenero.text.toString()
+            var gen:String = spinnerGenero.selectedItem.toString()
             var desc:String = EDDesc.text.toString()
 
-            if(!nombre.isNullOrEmpty() && !year.isNullOrEmpty() && !desc.isNullOrEmpty() ) {
+            if(!nombre.isNullOrEmpty() && !year.isNullOrEmpty() && !desc.isNullOrEmpty()  && !gen.isNullOrEmpty() && !fav_song.isNullOrEmpty()) {
                 Snackbar.make(parentLayout, "CREANDO ARTISTA...", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
                 CrearArtista_(this, nombre, year, fav_song, gen, desc)

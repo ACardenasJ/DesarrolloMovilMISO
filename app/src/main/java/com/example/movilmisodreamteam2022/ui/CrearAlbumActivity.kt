@@ -2,34 +2,25 @@ package com.example.movilmisodreamteam2022.ui
 
 import android.app.Activity
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.os.Handler
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
+import android.widget.*
 
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.android.volley.Response
 import com.example.movilmisodreamteam2022.R
-import com.example.movilmisodreamteam2022.models.Album
 import com.example.movilmisodreamteam2022.viewmodels.AlbumViewModel
-import com.google.android.material.textfield.TextInputEditText
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 import org.json.JSONObject
-import kotlin.system.measureTimeMillis
 
-class CrearAlbumActivity : AppCompatActivity() {
+class CrearAlbumActivity : AppCompatActivity(){
     var cover_basic: String = "https://cdn.dribbble.com/users/1100029/screenshots/5950588/media/451c0eb8bb7675c9bea0ddc26efece44.png"
 
 
     lateinit var requestTest: EditText
+    lateinit var generoMusical:String
+    lateinit var selloDiscografico:String
 
     private lateinit var viewModel: AlbumViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,16 +30,30 @@ class CrearAlbumActivity : AppCompatActivity() {
         var EDNombreAlbum: EditText = findViewById<EditText>(R.id.EDNombreAlbum)
         var EDYearAlbum: EditText = findViewById<EditText>(R.id.EDYearAlbum)
         var EDArtista: EditText = findViewById<EditText>(R.id.EDArtista)
-        var EDCancionPreferida: EditText = findViewById<EditText>(R.id.EDCancionPreferida)
-        var EDGenero: EditText = findViewById<EditText>(R.id.EDGenero)
+
+
+        var spinnerGenero: Spinner = findViewById<Spinner>(R.id.spinnerGenero)
+        ArrayAdapter.createFromResource(this, R.array.generoMusical, android.R.layout.simple_spinner_item)
+            .also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerGenero.adapter = adapter
+        }
+
         var EDDescrip: EditText = findViewById<EditText>(R.id.EDDescrip)
-        var EDRLabel: EditText = findViewById<EditText>(R.id.EDRLabel)
+
+
+        var spinnerSello: Spinner = findViewById<Spinner>(R.id.spinnerSello)
+        ArrayAdapter.createFromResource(this, R.array.selloDiscografico, android.R.layout.simple_spinner_item)
+            .also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerSello.adapter = adapter
+            }
+
         var BtnCrearAlbum: Button = findViewById<Button>(R.id.BtnCrearAlbum)
         var action_Bar = getSupportActionBar()
 
         requestTest = findViewById<EditText>(R.id.lblRequestCrearAlbum)
 
-        // showing the back button in action bar
         if (action_Bar != null) {
             action_Bar.setTitle("CREAR ALBUM")
             action_Bar.setDisplayHomeAsUpEnabled(true)
@@ -56,19 +61,18 @@ class CrearAlbumActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this, AlbumViewModel.Factory(this.application)).get(AlbumViewModel::class.java)
 
-
         BtnCrearAlbum.setOnClickListener {
 
             var nombre:String = EDNombreAlbum.text.toString().trim()
             var year:String = EDYearAlbum.text.toString().trim()
             var desc:String = EDDescrip.text.toString().trim()
-            var gen:String = EDGenero.text.toString().trim()
-            var rlabel:String = EDRLabel.text.toString().trim()
+            generoMusical = spinnerGenero.selectedItem.toString()
+            selloDiscografico = spinnerSello.selectedItem.toString()
 
-            if(!nombre.isNullOrEmpty() && !year.isNullOrEmpty() && !desc.isNullOrEmpty() && !gen.isNullOrEmpty() && !rlabel.isNullOrEmpty()) {
+            if(!nombre.isNullOrEmpty() && !year.isNullOrEmpty() && !desc.isNullOrEmpty() && !generoMusical.isNullOrEmpty() && !selloDiscografico.isNullOrEmpty()) {
                 Snackbar.make(parentLayout, "CREANDO ALBUM...", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
-                CrearAlbum_(this, nombre, year, desc, gen, rlabel)
+                CrearAlbum_(this, nombre, year, desc, generoMusical, selloDiscografico)
             }else{
                 Snackbar.make(parentLayout, "LOS VALORES NO PUEDEN SER VACIOS", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
@@ -81,7 +85,7 @@ class CrearAlbumActivity : AppCompatActivity() {
         return true
     }
 
-    fun CrearAlbum_(acti: Activity, name:String, year:String, desc:String, genre:String, recordLabel:String){
+    private fun CrearAlbum_(acti: Activity, name:String, year:String, desc:String, genre:String, recordLabel:String){
 
         val postParams = mapOf<String, Any>(
             "name" to name,
@@ -120,10 +124,11 @@ class CrearAlbumActivity : AppCompatActivity() {
             })
     }
 
-    fun mostrarMSJ(acti: Activity, msj: String){
+    private fun mostrarMSJ(acti: Activity, msj: String){
         runOnUiThread(Runnable {
             Toast.makeText(acti, msj, Toast.LENGTH_LONG).show()
 
         })
     }
+
 }
