@@ -6,7 +6,7 @@ Aqui se trabajara todo de la matería de Moviles
 <div>
 <h3 align="center">Vinilos app Uniandes MISO</h3>
 
-  <p align="center">
+  <p align="rigth">
     Este repositorio contiene el desarrollo implementado por el equipo para la materia Desarrollo de software en dispositivos moviles de la Maestria MISO en la universidad de Los Andes, contiene el archivo APK que se debe descargar, e instalar usando un dispositivo android con una versión mayor a la versión L (Lollipop) para que este corra en optimas condiciones.
 </div>
 
