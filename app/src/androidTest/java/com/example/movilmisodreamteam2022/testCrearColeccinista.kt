@@ -14,9 +14,9 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class testColeccinista {
+class testCrearColeccinista {
     @get:Rule
-    val activityRule = ActivityTestRule(CrearColeccionistaActivity::class.java)
+    val activityRuleCrearColeccionista = ActivityTestRule(CrearColeccionistaActivity::class.java)
 
     @Test
     fun testCreateColeccinista() {
@@ -30,7 +30,6 @@ class testColeccinista {
         Espresso.onView(ViewMatchers.withId(R.id.EDCellphoneColeccionista)).perform(ViewActions.typeText(telefono.toString()))
         Espresso.closeSoftKeyboard()
         Espresso.onView(ViewMatchers.withId(R.id.BtnCrearColeccionista)).perform(ViewActions.click())
-
         Espresso.onView(ViewMatchers.withId(R.id.lblRequestCrearColeccinista))
             .check(matches(ViewMatchers.withText("Coleccionista creado correctamente")))
 
