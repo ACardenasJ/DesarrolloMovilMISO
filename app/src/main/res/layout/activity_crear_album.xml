@@ -56,25 +56,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/artista"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Artista"
-            android:textSize="20dp"
-            android:textStyle="italic" />
-
-        <EditText
-            android:id="@+id/EDArtista"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Introduce aquí el nombre del artista"
-            android:inputType="text" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <TextView
             android:id="@+id/lblGenero"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

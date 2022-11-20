@@ -11,18 +11,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.android.volley.Response
 import com.example.movilmisodreamteam2022.R
-import com.example.movilmisodreamteam2022.models.Banda
-import com.example.movilmisodreamteam2022.viewmodels.ArtistaViewModel
 import com.example.movilmisodreamteam2022.viewmodels.ColeccionistaViewModel
-import com.google.android.material.textfield.TextInputEditText
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 import org.json.JSONObject
-import kotlin.system.measureTimeMillis
+
 
 class CrearColeccionistaActivity : AppCompatActivity() {
     var img_basic: String = "https://cdn.dribbble.com/users/1100029/screenshots/5950588/media/451c0eb8bb7675c9bea0ddc26efece44.png"

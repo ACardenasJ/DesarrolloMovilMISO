@@ -29,8 +29,6 @@ class CrearAlbumActivity : AppCompatActivity(){
         var parentLayout: View = findViewById(android.R.id.content)
         var EDNombreAlbum: EditText = findViewById<EditText>(R.id.EDNombreAlbum)
         var EDYearAlbum: EditText = findViewById<EditText>(R.id.EDYearAlbum)
-        var EDArtista: EditText = findViewById<EditText>(R.id.EDArtista)
-
 
         var spinnerGenero: Spinner = findViewById<Spinner>(R.id.spinnerGenero)
         ArrayAdapter.createFromResource(this, R.array.generoMusical, android.R.layout.simple_spinner_item)

@@ -25,7 +25,6 @@ class testColeccinista {
         var email = "andres@hotmail.com"
         var telefono = "3146692641"
 
-
         Espresso.onView(ViewMatchers.withId(R.id.EDNombreColeccionista)).perform(ViewActions.typeText(coleccionistanombre.toString()))
         Espresso.onView(ViewMatchers.withId(R.id.EDEmail)).perform(ViewActions.typeText(email.toString()))
         Espresso.onView(ViewMatchers.withId(R.id.EDCellphoneColeccionista)).perform(ViewActions.typeText(telefono.toString()))
