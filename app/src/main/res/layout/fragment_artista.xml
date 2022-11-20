@@ -17,8 +17,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/artistasRv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/artist_item"/>
+        android:layout_height="672dp"
+        android:layout_marginTop="150px"
+        android:layout_marginBottom="10px"
+        tools:listitem="@layout/artist_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_artist"
