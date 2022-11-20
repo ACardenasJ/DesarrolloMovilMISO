@@ -43,3 +43,22 @@ Se recomienda usar un computador con una RAM mayor a 8 GB o un celular con más 
   - De la lista que se muestra seleccione el ID del dispositivo en el cual desea correr el monkey
   - En la terminal digite el siguiente comando: adb -s emulator-5554 shell monkey -p com.example.movilmisodreamteam2022 -v 100
 </div> 
+
+
+### Instrucciones para construccion de la App
+
+1. Debemos clonar el repositorio con el comando  
+``` git clone https://github.com/ACardenasJ/DesarrolloMovilMISO.git ```
+2. Nos debemos parar en la rama de release o main  
+``` git checkout release ```
+3. Abrimos nuestro programa de Android Studio
+4. Debemos abrir nuestro proyecto parados sobre nuestra carpeta base con nombre DesarrolloMovilMISO
+5. Debemos verificar que nuestro gradle este actualizado, solo debemos darle clic sobre el icono del elefante
+6. Si queremos correr la app localmente, debemos elegir un dispositivo y debemos dar clic sobre el triangulo verde
+7. Si queremos generar nuestra APK, debemos dar clic sobre el menu de  
+``` Build -> Build Bundle(s) / APK(s) -> Build APK(s) ```
+8. Luego debemos ir a la siguiente direccion  
+``` DesarrolloMovilMISO/app/build/outputs/apk/debug ```
+9. Luego debemos copiar nuestra APK generada a nuestro dispositivo final (en este caso estamos usando un dispositivo fisico)
+10. Luego debemos dirigirnos sobre el APK y dar clic y luego dar en Instalar.  
+NOTA: El dispositivo debe tener configurado la parte poder instalar aplicaciones desconocidas
