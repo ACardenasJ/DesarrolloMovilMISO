@@ -37,9 +37,9 @@ Se recomienda usar un computador con una RAM mayor a 8 GB o un celular con más 
   La alerta se ve de la siguiente forma:
   https://uniandes-my.sharepoint.com/:i:/g/personal/js_sanchezl12_uniandes_edu_co/EfxtpQcMaNFMnbPKIJtSk7kBebfYxtSmW_x3z88VjKjH5Q?e=ebE6fd
 
-  - En la terminal del proyecto escriba el siguiente comando: adb devices
+  - En la terminal del proyecto escriba el siguiente comando: adb devices <br>
   Una vez todo se encuentre adecuadamente configurado, podrá ver en la consola el listado de dispositivos con el nombre de usuario asociado, como se ve en la siguiente imagen:
-  ![Uploading Captura de Pantalla 2022-11-20 a la(s) 5.51.13 p. m..png…]()
+  [![Uploading Captura de Pantalla 2022-11-20 a la(s) 5.51.13 p. m..png…]()](https://uniandes-my.sharepoint.com/:i:/g/personal/js_sanchezl12_uniandes_edu_co/EadvRl5McnFDii-b5cZUllEBTGmDSUlkPDFHy64upNYHwg?e=KoK6C3)
   - De la lista que se muestra seleccione el ID del dispositivo en el cual desea correr el monkey
   - En la terminal digite el siguiente comando: adb -s emulator-5554 shell monkey -p com.example.movilmisodreamteam2022 -v 100
 </div> 
