@@ -30,8 +30,6 @@ class testArtista {
         var song = "otro dia para morir"
         var des = "Descripcion"
 
-
-
         onView(withId(R.id.EDNombre)).perform(ViewActions.typeText(nombre.toString()))
         onView(withId(R.id.EDYear)).perform(ViewActions.typeText(year.toString()))
         onView(withId(R.id.EDSong)).perform(ViewActions.typeText(song.toString()))
