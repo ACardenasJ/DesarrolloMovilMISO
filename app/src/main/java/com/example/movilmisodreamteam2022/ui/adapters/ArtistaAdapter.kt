@@ -1,5 +1,6 @@
 package com.example.movilmisodreamteam2022.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -13,6 +14,7 @@ import com.example.movilmisodreamteam2022.ui.ArtistaFragmentDirections
 
 class ArtistaAdapter : RecyclerView.Adapter<ArtistaAdapter.ArtistaViewHolder>(){
     var bandas :List<Banda> = emptyList()
+        @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
             notifyDataSetChanged()

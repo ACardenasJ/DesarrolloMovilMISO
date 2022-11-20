@@ -1,5 +1,6 @@
 package com.example.movilmisodreamteam2022.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -12,6 +13,7 @@ import com.example.movilmisodreamteam2022.models.Coleccionista
 
 class ColeccionistaAdapter : RecyclerView.Adapter<ColeccionistaAdapter.ColeccionistaViewHolder>(){
     var coleccionistas : List<Coleccionista> = emptyList()
+        @SuppressLint("NotifyDataSetChanged")
         set(value){
             field = value
             notifyDataSetChanged()
