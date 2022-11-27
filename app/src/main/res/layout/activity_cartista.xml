@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Introducit aqui el nombre del artista"
+            android:hint="Introducir el nombre del artista"
             />
         <TextView
             android:id="@+id/lblYear"
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Introducit aqui el año de nacimiento del artista"
+            android:hint="Introducir el año de nacimiento del artista"
             />
         <TextView
             android:id="@+id/lblSong"
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Introducit aqui el nombre de la canción del artista"
+            android:hint="Introducir el nombre de la canción del artista"
             />
         <TextView
             android:id="@+id/lblGenero"
@@ -66,13 +66,12 @@
             android:textStyle="italic"
             android:textSize="20dp"
             />
-        <EditText
-            android:id="@+id/EDGenero"
+
+        <Spinner
+            android:id="@+id/spinnerArtistaGenero"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Introducit aqui el nombre del género"
-            />
+            android:layout_height="wrap_content" />
+
         <TextView
             android:id="@+id/lblDesc"
             android:layout_width="match_parent"
@@ -86,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text|textMultiLine"
-            android:hint="Introducit aqui la descripción"
+            android:hint="Introducir la descripción"
             />
         <Space
             android:layout_width="match_parent"
@@ -102,5 +101,18 @@
             android:backgroundTint="@color/orange"
             android:gravity="center"
             />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:id="@+id/lblRequestCrearArtista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=""
+            android:visibility="gone"
+            android:textSize="20dp"
+            android:textStyle="italic" />
     </LinearLayout>
 </ScrollView>

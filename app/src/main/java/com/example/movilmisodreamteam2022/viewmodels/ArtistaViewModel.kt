@@ -36,13 +36,6 @@ class ArtistaViewModel(application: Application) :  AndroidViewModel(application
     }
 
     fun refreshDataFromNetwork() {
-        /*NetworkServiceAdapter.getInstance(getApplication()).getArtistas({
-            _artistas.postValue(it)
-            _eventNetworkError.value = false
-            _isNetworkErrorShown.value = false
-        },{
-            _eventNetworkError.value = true
-        })*/
         artistaRepository.refreshData({
             _artistas.postValue(it)
             _eventNetworkError.value = false

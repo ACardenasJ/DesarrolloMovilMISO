@@ -8,8 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="15dp"
         android:paddingRight="15dp">
@@ -57,44 +56,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/artista"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Artista"
-            android:textSize="20dp"
-            android:textStyle="italic" />
-
-        <EditText
-            android:id="@+id/EDArtista"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Introduce aquí el nombre del artista"
-            android:inputType="text" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <TextView
-            android:id="@+id/lblCancionPreferida"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Canción Preferida del Álbum"
-            android:textSize="20dp"
-            android:textStyle="italic" />
-
-        <EditText
-            android:id="@+id/EDCancionPreferida"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Introduce aquí el nombre de la canción"
-            android:inputType="text" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <TextView
             android:id="@+id/lblGenero"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -102,12 +63,10 @@
             android:textSize="20dp"
             android:textStyle="italic" />
 
-        <EditText
-            android:id="@+id/EDGenero"
+        <Spinner
+            android:id="@+id/spinnerGenero"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Introduce aquí el genero [Classical, Salsa, Rock, Folk]"
-            android:inputType="text|textMultiLine" />
+            android:layout_height="wrap_content" />
 
         <Space
             android:layout_width="match_parent"
@@ -139,12 +98,11 @@
             android:text="Sello Discografico"
             android:textSize="20dp"
             android:textStyle="italic" />
-        <EditText
-            android:id="@+id/EDRLabel"
+
+        <Spinner
+            android:id="@+id/spinnerSello"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Introduce el sello discografico [Sony Music, EMI, Discos Fuentes, Elektra, Fania Records]"
-            android:inputType="text|textMultiLine" />
+            android:layout_height="wrap_content" />
 
         <Space
             android:layout_width="match_parent"
@@ -160,5 +118,18 @@
             android:text="Crear"
             android:textColor="@color/white"
             android:textSize="15dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:id="@+id/lblRequestCrearAlbum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=""
+            android:visibility="gone"
+            android:textSize="20dp"
+            android:textStyle="italic" />
     </LinearLayout>
 </ScrollView>
