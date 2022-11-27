@@ -6,7 +6,11 @@ Aqui se trabajara todo de la matería de Moviles
 <div>
 <h3 align="center">Vinilos app Uniandes MISO</h3>
 
+<<<<<<< HEAD
+  <p align="center">
+=======
   <p align="rigth">
+>>>>>>> main
     Este repositorio contiene el desarrollo implementado por el equipo para la materia Desarrollo de software en dispositivos moviles de la Maestria MISO en la universidad de Los Andes, contiene el archivo APK que se debe descargar, e instalar usando un dispositivo android con una versión mayor a la versión L (Lollipop) para que este corra en optimas condiciones.
 </div>
 
@@ -21,6 +25,14 @@ Se recomienda usar un computador con una RAM mayor a 8 GB o un celular con más 
 - HU-007	Crear Álbum
 - HU-017	Crear Coleccionista
 - HU-001	Consultar catalogo de Álbumes
+<<<<<<< HEAD
+- HU-003	Consultar el listado de Artistas
+- HU-005	Consultar el listado de Coleccionistas
+- HU-004	Consultar la información detallada de un Artista
+- HU-002	Consultar la información detallada de un Álbum
+- HU-006	Consultar la información detallada de un Coleccionista
+
+=======
 - HU-002	Consultar la información detallada de un Álbum
 - HU-003	Consultar el listado de Artistas
 - HU-004	Consultar la información detallada de un Artista
@@ -45,6 +57,7 @@ Se recomienda usar un computador con una RAM mayor a 8 GB o un celular con más 
 </div> 
 
 
+>>>>>>> main
 ### Instrucciones para construccion de la App
 
 1. Debemos clonar el repositorio con el comando  
