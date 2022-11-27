@@ -9,21 +9,27 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movilmisodreamteam2022.R
-import com.example.movilmisodreamteam2022.databinding.FragmentAlbumBinding
-import com.example.movilmisodreamteam2022.models.Album
-import com.example.movilmisodreamteam2022.ui.adapters.AlbumAdapter
-import com.example.movilmisodreamteam2022.viewmodels.AlbumViewModel
+import com.example.movilmisodreamteam2022.databinding.FragmentArtistaBinding
+import com.example.movilmisodreamteam2022.databinding.FragmentColeccionistaBinding
+import com.example.movilmisodreamteam2022.models.Banda
+import com.example.movilmisodreamteam2022.models.Coleccionista
+import com.example.movilmisodreamteam2022.ui.adapters.ArtistaAdapter
+import com.example.movilmisodreamteam2022.ui.adapters.ColeccionistaAdapter
+import com.example.movilmisodreamteam2022.viewmodels.ArtistaViewModel
+import com.example.movilmisodreamteam2022.viewmodels.ColeccionistaViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class AlbumFragment : Fragment() {
-    private var _binding: FragmentAlbumBinding? = null
+class ColeccionistaFragment : Fragment() {
+
+    private var _binding: FragmentColeccionistaBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    private lateinit var viewModel: AlbumViewModel
-    private var viewModelAdapter: AlbumAdapter? = null
+    private lateinit var viewModel: ColeccionistaViewModel
+    private var viewModelAdapter: ColeccionistaAdapter? = null
     lateinit var addFAB: FloatingActionButton
     var rtimes: Int = 0
 
@@ -31,33 +37,36 @@ class AlbumFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAlbumBinding.inflate(inflater, container, false)
+        _binding = FragmentColeccionistaBinding.inflate(inflater, container, false)
         val view = binding.root
-        viewModelAdapter = AlbumAdapter()
+        viewModelAdapter = ColeccionistaAdapter()
         return view
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = binding.albumsRv
+        recyclerView = binding.coleccionistasRv
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
-        addFAB = view.findViewById(R.id.fab_add_album)
-        addFAB.setOnClickListener{
-            val intent = Intent(view.context, CrearAlbumActivity::class.java)
+        addFAB = view.findViewById(R.id.fab_add_coleccionista)
+        addFAB.setOnClickListener {
+            val intent = Intent(view.context, CrearColeccionistaActivity::class.java)
             startActivity(intent)
         }
     }
+
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        activity.actionBar?.title = "ARTISTAS"
-        viewModel = ViewModelProvider(this, AlbumViewModel.Factory(activity.application)).get(AlbumViewModel::class.java)
-        viewModel.albums.observe(viewLifecycleOwner, Observer<List<Album>> {
+        activity.actionBar?.title = "COLECCIONISTAS"
+        viewModel = ViewModelProvider(this, ColeccionistaViewModel.Factory(activity.application)).get(ColeccionistaViewModel::class.java)
+        viewModel.coleccionistas.observe(viewLifecycleOwner, Observer<List<Coleccionista>> {
             it.apply {
-                viewModelAdapter!!.albums = this
+                viewModelAdapter!!.coleccionistas = this
             }
         })
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
@@ -83,4 +92,19 @@ class AlbumFragment : Fragment() {
             viewModel.onNetworkErrorShown()
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

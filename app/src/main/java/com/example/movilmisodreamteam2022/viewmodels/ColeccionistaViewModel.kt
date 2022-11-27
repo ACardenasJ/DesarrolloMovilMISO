@@ -4,18 +4,20 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.android.volley.VolleyError
 import com.example.movilmisodreamteam2022.models.Banda
+import com.example.movilmisodreamteam2022.models.Coleccionista
 import com.example.movilmisodreamteam2022.network.NetworkServiceAdapter
 import com.example.movilmisodreamteam2022.repositories.ArtistaRepository
+import com.example.movilmisodreamteam2022.repositories.ColeccionistaRepository
 import org.json.JSONObject
 
-class ArtistaViewModel(application: Application) :  AndroidViewModel(application) {
+class ColeccionistaViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val artistaRepository = ArtistaRepository(application)
+    private val coleccionistaRepository = ColeccionistaRepository(application)
 
-    private val _artistas = MutableLiveData<List<Banda>>()
+    private val _coleccionistas = MutableLiveData<List<Coleccionista>>()
 
-    val artistas: LiveData<List<Banda>>
-        get() = _artistas
+    val coleccionistas: LiveData<List<Coleccionista>>
+        get() = _coleccionistas
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -31,13 +33,13 @@ class ArtistaViewModel(application: Application) :  AndroidViewModel(application
         refreshDataFromNetwork()
     }
 
-    fun crearArtista(body: JSONObject, callback: (JSONObject)->Unit, onError: (VolleyError)->Unit){
-        artistaRepository.postData(body, callback, onError)
+    fun crearColeccionista(body: JSONObject, callback: (JSONObject)->Unit, onError: (VolleyError)->Unit){
+        coleccionistaRepository.postData(body, callback, onError)
     }
 
     fun refreshDataFromNetwork() {
-        artistaRepository.refreshData({
-            _artistas.postValue(it)
+        coleccionistaRepository.refreshData({
+            _coleccionistas.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
         },{
@@ -51,11 +53,12 @@ class ArtistaViewModel(application: Application) :  AndroidViewModel(application
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(ArtistaViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(ColeccionistaViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return ArtistaViewModel(app) as T
+                return ColeccionistaViewModel(app) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }
     }
+
 }

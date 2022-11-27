@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.CrearAlbumActivity">
+    tools:context=".ui.CrearColeccionistaActivity">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:paddingLeft="15dp"
         android:paddingRight="15dp">
+
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="30dp" />
 
+
         <TextView
-            android:id="@+id/lblNombreAlbum"
+            android:id="@+id/lblNombreColeccionista"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Nombre del album"
+            android:text="Nombre del coleccionista"
             android:textSize="20dp"
             android:textStyle="italic" />
 
         <EditText
-            android:id="@+id/EDNombreAlbum"
+            android:id="@+id/EDNombreColeccionista"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Introduce aquí el nombre del álbum"
+            android:hint="Introduce aquí el nombre del coleccionista"
             android:inputType="text" />
 
         <Space
@@ -37,79 +40,46 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/lblYearAlbum"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Año de lanzamiento del álbum"
+            android:text="email"
             android:textSize="20dp"
             android:textStyle="italic" />
 
         <EditText
-            android:id="@+id/EDYearAlbum"
+            android:id="@+id/EDEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Introduce aquí el año de lanzamiento del álbum"
+            android:hint="Introduce aquí el email del coleccionista"
+            android:inputType="text" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/lblCellphoneColeccionista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Numero de celular del coleccionista"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/EDCellphoneColeccionista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Introduce aquí el numero de celular"
             android:inputType="number" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <TextView
-            android:id="@+id/lblGenero"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Genero"
-            android:textSize="20dp"
-            android:textStyle="italic" />
-
-        <Spinner
-            android:id="@+id/spinnerGenero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <TextView
-            android:id="@+id/lblDescrip"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Descripción"
-            android:textSize="20dp"
-            android:textStyle="italic" />
-
-        <EditText
-            android:id="@+id/EDDescrip"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Introduce aquí la Descripción"
-            android:inputType="text|textMultiLine" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <TextView
-            android:id="@+id/lblrlabel"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Sello Discografico"
-            android:textSize="20dp"
-            android:textStyle="italic" />
-
-        <Spinner
-            android:id="@+id/spinnerSello"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
         <Button
-            android:id="@+id/BtnCrearAlbum"
+            android:id="@+id/BtnCrearColeccionista"
             android:layout_width="150dp"
             android:layout_height="70dp"
             android:layout_gravity="right"
@@ -124,12 +94,14 @@
             android:layout_height="30dp" />
 
         <EditText
-            android:id="@+id/lblRequestCrearAlbum"
+            android:id="@+id/lblRequestCrearColeccinista"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text=""
             android:visibility="gone"
-            android:textSize="20dp"
-            android:textStyle="italic" />
+            android:inputType="number" />
+
     </LinearLayout>
 </ScrollView>
+
+
+
