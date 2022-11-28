@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movilmisodreamteam2022.R
 import com.example.movilmisodreamteam2022.databinding.ColeccionistaItemBinding
 import com.example.movilmisodreamteam2022.models.Coleccionista
+import com.example.movilmisodreamteam2022.ui.ArtistaFragmentDirections
+import com.example.movilmisodreamteam2022.ui.ColeccionistaFragmentDirections
 
 
 class ColeccionistaAdapter : RecyclerView.Adapter<ColeccionistaAdapter.ColeccionistaViewHolder>(){
@@ -29,6 +32,11 @@ class ColeccionistaAdapter : RecyclerView.Adapter<ColeccionistaAdapter.Coleccion
     override fun onBindViewHolder(holder: ColeccionistaViewHolder, position:Int) {
         holder.viewDataBinding.also{
             it.coleccionista = coleccionistas[position]
+        }
+        holder.viewDataBinding.root.setOnClickListener {
+            val action = ColeccionistaFragmentDirections.actionColeccionistaFragmentToMenuFragment()
+            // Navigate using that action
+            holder.viewDataBinding.root.findNavController().navigate(action)
         }
     }
 
