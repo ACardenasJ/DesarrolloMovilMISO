@@ -67,6 +67,7 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.5.0'
 
     implementation "androidx.test:core:1.4.1-alpha04"
+    // Recyclerview
 
 
 }
