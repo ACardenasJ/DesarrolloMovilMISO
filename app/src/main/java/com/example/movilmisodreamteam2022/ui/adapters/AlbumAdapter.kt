@@ -37,7 +37,10 @@ class AlbumAdapter : RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder>(){
         holder.viewDataBinding.root.setOnClickListener {
             val action = AlbumFragmentDirections.actionAlbumFragmentToMenuFragment()
             // Navigate using that action
+            System.out.println("Realice el Click")
+            System.out.println("Realice el Click validar algo:  " +  albums[position].id)
             holder.viewDataBinding.root.findNavController().navigate(action)
+
         }
     }
 

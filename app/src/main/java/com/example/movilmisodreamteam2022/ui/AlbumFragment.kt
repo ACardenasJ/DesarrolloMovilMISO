@@ -1,5 +1,6 @@
 package com.example.movilmisodreamteam2022.ui
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -45,22 +46,24 @@ class AlbumFragment : Fragment() {
         addFAB.setOnClickListener{
             val intent = Intent(view.context, CrearAlbumActivity::class.java)
             startActivity(intent)
+
+
         }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val activity = requireNotNull(this.activity) {
+     val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        activity.actionBar?.title = "ARTISTAS"
+        activity.actionBar?.title = "Albumes"
         viewModel = ViewModelProvider(this, AlbumViewModel.Factory(activity.application)).get(AlbumViewModel::class.java)
         viewModel.albums.observe(viewLifecycleOwner, Observer<List<Album>> {
             it.apply {
                 viewModelAdapter!!.albums = this
             }
         })
-        viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
+           viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
             if (isNetworkError) onNetworkError()
         })
     }
@@ -82,5 +85,10 @@ class AlbumFragment : Fragment() {
             Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
             viewModel.onNetworkErrorShown()
         }
+    }
+
+    fun mostrarMSJ(msj: String){
+            Toast.makeText(getActivity(), msj, Toast.LENGTH_LONG).show()
+
     }
 }
