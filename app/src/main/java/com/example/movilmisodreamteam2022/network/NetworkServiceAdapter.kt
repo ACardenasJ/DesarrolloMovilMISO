@@ -28,9 +28,9 @@ class NetworkServiceAdapter constructor(context: Context) {
         Volley.newRequestQueue(context.applicationContext)
     }
 
-    fun getArtistas( onComplete:(resp:List<Banda>)->Unit , onError: (error:VolleyError)->Unit){
+    fun getArtistas(onComplete:(resp:List<Banda>)->Unit , onError: (error:VolleyError)->Unit){
         requestQueue.add(getRequest("bands",
-            Response.Listener<String> { response ->
+            { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Banda>()
                 for (i in 0 until resp.length()) {
@@ -46,7 +46,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                 list.sortedByDescending { it.id }
                 onComplete(list)
             },
-            Response.ErrorListener {
+            {
                 onError(it)
             }))
     }
@@ -60,6 +60,23 @@ class NetworkServiceAdapter constructor(context: Context) {
             Response.ErrorListener {
                 onError(it)
             }))
+    }
+
+    fun getArtistabyId(onComplete:(resp:Banda)->Unit , onError: (error:VolleyError)->Unit, id: String){
+        requestQueue.add(getRequest("bands/$id",
+            { response ->
+                val resp = JSONObject(response)
+                val banda =  Banda( id = resp.getInt("id"),
+                                    name = resp.getString("name"),
+                                    image = resp.getString("image"),
+                                    description = resp.getString("description"),
+                                    creationDate = resp.getString("creationDate"))
+                onComplete(banda)
+            },
+            {
+                onError(it)
+            }))
+
     }
 
     fun getAlbums(onComplete:(resp:List<Album>)->Unit , onError: (error:VolleyError)->Unit){
@@ -100,7 +117,6 @@ class NetworkServiceAdapter constructor(context: Context) {
             })
         )
     }
-
 
     fun getColeccionistas(onComplete:(resp:List<Coleccionista>)->Unit , onError: (error:VolleyError)->Unit){
         requestQueue.add(getRequest("collectors",
