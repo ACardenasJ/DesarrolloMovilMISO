@@ -42,7 +42,7 @@
         android:id="@+id/crear_artistaFragment"
         android:name="com.example.movilmisodreamteam2022.ui.CrearArtistaActivity"
         android:label="Crear Artista"
-        tools:layout="@layout/activity_cartista" >
+        tools:layout="@layout/activity_crear_artista" >
         <action
             android:id="@+id/action_cartistFragment_to_artistFragment"
             app:destination="@id/artistaFragment" />
