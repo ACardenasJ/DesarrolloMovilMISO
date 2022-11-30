@@ -13,9 +13,13 @@ class ArtistaViewModel(application: Application) :  AndroidViewModel(application
     private val artistaRepository = ArtistaRepository(application)
 
     private val _artistas = MutableLiveData<List<Banda>>()
+    private val _artista = MutableLiveData<Banda>()
 
     val artistas: LiveData<List<Banda>>
         get() = _artistas
+
+    val artista : LiveData<Banda>
+        get() = _artista
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -44,6 +48,19 @@ class ArtistaViewModel(application: Application) :  AndroidViewModel(application
             _eventNetworkError.value = true
         })
     }
+
+    fun getArtistaByIdFromNetwork(id: String) {
+        artistaRepository.getArtistaByID(
+            {
+                _artista.postValue(it)
+                _eventNetworkError.value = false
+                _isNetworkErrorShown.value = false
+            },{
+                _eventNetworkError.value = true
+            },
+            id)
+    }
+
 
     fun onNetworkErrorShown() {
         _isNetworkErrorShown.value = true
