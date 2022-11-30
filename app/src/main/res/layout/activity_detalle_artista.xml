@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.CrearArtistaActivity"
     >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nombre del Artista o la Banda:"
-            android:textStyle="italic"
+            android:textStyle="bold"
             android:textSize="20dp" />
         <Space
             android:layout_width="match_parent"
@@ -30,13 +31,16 @@
             android:layout_height="wrap_content"
             android:textStyle="italic"
             android:textSize="20dp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
 
         <TextView
             android:id="@+id/lblDetalleDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Descripción del Artista o la Banda:"
-            android:textStyle="italic"
+            android:textStyle="bold"
             android:textSize="20dp" />
         <Space
             android:layout_width="match_parent"
@@ -48,13 +52,16 @@
             android:layout_height="wrap_content"
             android:textStyle="italic"
             android:textSize="20dp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
 
         <TextView
             android:id="@+id/lblDetalleFechaDeInicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Fecha de Inicio del Artista o la Banda:"
-            android:textStyle="italic"
+            android:textStyle="bold"
             android:textSize="20dp" />
         <Space
             android:layout_width="match_parent"
@@ -66,6 +73,9 @@
             android:layout_height="wrap_content"
             android:textStyle="italic"
             android:textSize="20dp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
 
     </LinearLayout>
 </ScrollView>
