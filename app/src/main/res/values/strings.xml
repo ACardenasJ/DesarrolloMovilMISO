@@ -25,4 +25,5 @@
         <item>Elektra</item>
         <item>Fania Records</item>
     </string-array>
+    <string name="title_activity_detalle_artista">DetalleArtistaActivity</string>
 </resources>

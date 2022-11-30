@@ -22,7 +22,7 @@ class CrearArtistaActivity : AppCompatActivity() {
     private lateinit var viewModel: ArtistaViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cartista)
+        setContentView(R.layout.activity_crear_artista)
         var parentLayout: View = findViewById(android.R.id.content)
         var EDNombre: EditText = findViewById<EditText>(R.id.EDNombre)
         var EDYear: EditText = findViewById<EditText>(R.id.EDYear)
@@ -75,7 +75,6 @@ class CrearArtistaActivity : AppCompatActivity() {
     }
 
     fun CrearArtista_(acti: Activity, nombre: String, year:String, fav_song: String, gen: String, desc: String){
-
         val postParams = mapOf<String, Any>(
             "name" to nombre,
             "image" to img_basic,

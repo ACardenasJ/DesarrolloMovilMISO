@@ -11,9 +11,7 @@ import org.json.JSONObject
 
 class AlbumViewModel(application: Application) :  AndroidViewModel(application) {
     private val albumRepository = AlbumRepository(application)
-
     private val _albums = MutableLiveData<List<Album>>()
-
     val albums: LiveData<List<Album>>
         get() = _albums
 
