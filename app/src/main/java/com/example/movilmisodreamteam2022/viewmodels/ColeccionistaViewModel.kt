@@ -3,21 +3,21 @@ package com.example.movilmisodreamteam2022.viewmodels
 import android.app.Application
 import androidx.lifecycle.*
 import com.android.volley.VolleyError
-import com.example.movilmisodreamteam2022.models.Banda
 import com.example.movilmisodreamteam2022.models.Coleccionista
-import com.example.movilmisodreamteam2022.network.NetworkServiceAdapter
-import com.example.movilmisodreamteam2022.repositories.ArtistaRepository
 import com.example.movilmisodreamteam2022.repositories.ColeccionistaRepository
 import org.json.JSONObject
 
 class ColeccionistaViewModel(application: Application) : AndroidViewModel(application) {
 
     private val coleccionistaRepository = ColeccionistaRepository(application)
-
     private val _coleccionistas = MutableLiveData<List<Coleccionista>>()
+    private val _collector = MutableLiveData<Coleccionista>()
 
     val coleccionistas: LiveData<List<Coleccionista>>
         get() = _coleccionistas
+
+    val coleccionista : LiveData<Coleccionista>
+        get() = _collector
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -45,6 +45,18 @@ class ColeccionistaViewModel(application: Application) : AndroidViewModel(applic
         },{
             _eventNetworkError.value = true
         })
+    }
+
+    fun getColeccionistabyIdFromNetwork(id: String) {
+        coleccionistaRepository.getColeccionistabyId({
+            _collector.postValue(it)
+            _eventNetworkError.value = false
+            _isNetworkErrorShown.value = false
+        },{
+            _eventNetworkError.value = true
+
+        },
+            id)
     }
 
     fun onNetworkErrorShown() {

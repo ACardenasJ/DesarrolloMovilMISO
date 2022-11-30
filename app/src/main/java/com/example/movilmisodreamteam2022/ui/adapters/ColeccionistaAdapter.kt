@@ -1,6 +1,7 @@
 package com.example.movilmisodreamteam2022.ui.adapters
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -12,6 +13,8 @@ import com.example.movilmisodreamteam2022.databinding.ColeccionistaItemBinding
 import com.example.movilmisodreamteam2022.models.Coleccionista
 import com.example.movilmisodreamteam2022.ui.ArtistaFragmentDirections
 import com.example.movilmisodreamteam2022.ui.ColeccionistaFragmentDirections
+import com.example.movilmisodreamteam2022.ui.DetalleArtistaActivity
+import com.example.movilmisodreamteam2022.ui.activity_detalle_collecionista
 
 
 class ColeccionistaAdapter : RecyclerView.Adapter<ColeccionistaAdapter.ColeccionistaViewHolder>(){
@@ -33,10 +36,13 @@ class ColeccionistaAdapter : RecyclerView.Adapter<ColeccionistaAdapter.Coleccion
         holder.viewDataBinding.also{
             it.coleccionista = coleccionistas[position]
         }
-        holder.viewDataBinding.root.setOnClickListener {
+        holder.viewDataBinding.root.setOnClickListener { v->
             val action = ColeccionistaFragmentDirections.actionColeccionistaFragmentToMenuFragment()
             // Navigate using that action
-            holder.viewDataBinding.root.findNavController().navigate(action)
+            //holder.viewDataBinding.root.findNavController().navigate(action)
+            val intento = Intent(v.context, activity_detalle_collecionista::class.java)
+            intento.putExtra("id-Coleccionista",  coleccionistas[position].id.toString())
+            v.context.startActivity(intento)
         }
     }
 
