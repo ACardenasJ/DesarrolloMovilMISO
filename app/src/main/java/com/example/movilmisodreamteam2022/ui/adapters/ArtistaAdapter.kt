@@ -42,7 +42,6 @@ class ArtistaAdapter : RecyclerView.Adapter<ArtistaAdapter.ArtistaViewHolder>(){
            // holder.viewDataBinding.root.findNavController().navigate(action)
             val intento = Intent(v.context, DetalleArtistaActivity::class.java)
             intento.putExtra("id-Artista",  bandas[position].id.toString())
-
             v.context.startActivity(intento)
         }
     }

@@ -34,7 +34,6 @@ class DetalleArtistaActivity : AppCompatActivity() {
         var EDYear: TextView = findViewById<TextView>(R.id.lblDetalleFechaDeInicioTxt)
         val bundle = intent.extras
         val dato = bundle?.getString("id-Artista")
-        System.out.println("Hola dATO:: "+ dato)
 
         if (action_Bar != null) {
             action_Bar.setTitle("Detalle del Artista")
@@ -54,8 +53,11 @@ class DetalleArtistaActivity : AppCompatActivity() {
             },
             2000 // value in milliseconds
         )
+    }
 
-
-
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        //return super.onSupportNavigateUp()
+        return true
     }
 }
