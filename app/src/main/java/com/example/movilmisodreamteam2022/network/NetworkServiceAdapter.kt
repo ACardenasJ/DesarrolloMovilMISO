@@ -81,7 +81,7 @@ class NetworkServiceAdapter constructor(context: Context) {
 
     fun getAlbums(onComplete:(resp:List<Album>)->Unit , onError: (error:VolleyError)->Unit){
         requestQueue.add(getRequest("albums",
-            Response.Listener<String> { response ->
+            { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Album>()
                 for (i in 0 until resp.length()) {
@@ -99,7 +99,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                 }
                 onComplete(list)
             },
-            Response.ErrorListener {
+            {
                 onError(it)
             }
 
@@ -109,10 +109,10 @@ class NetworkServiceAdapter constructor(context: Context) {
     fun postAlbum(body: JSONObject, onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
         requestQueue.add(postRequest("albums",
             body,
-            Response.Listener<JSONObject> { response ->
+            { response ->
                 onComplete(response)
             },
-            Response.ErrorListener {
+            {
                 onError(it)
             })
         )
@@ -120,13 +120,14 @@ class NetworkServiceAdapter constructor(context: Context) {
 
     fun getColeccionistas(onComplete:(resp:List<Coleccionista>)->Unit , onError: (error:VolleyError)->Unit){
         requestQueue.add(getRequest("collectors",
-            Response.Listener<String> { response ->
+            { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Coleccionista>()
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
                     list.add(i,
                         Coleccionista(
+                            id = item.getInt("id"),
                             name = item.getString("name"),
                             email = item.getString("email"),
                             telephone = item.getString("telephone"))
@@ -134,7 +135,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                 }
                 onComplete(list)
             },
-            Response.ErrorListener {
+            {
                 onError(it)
             }
 
@@ -144,13 +145,30 @@ class NetworkServiceAdapter constructor(context: Context) {
     fun postColeccionista(body: JSONObject, onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
         requestQueue.add(postRequest("collectors",
             body,
-            Response.Listener<JSONObject> { response ->
+            { response ->
                 onComplete(response)
             },
-            Response.ErrorListener {
+            {
                 onError(it)
             })
         )
+    }
+
+    fun getColeccionistabyId(onComplete:(resp:Coleccionista)->Unit , onError: (error:VolleyError)->Unit, id: String){
+        requestQueue.add(getRequest("collectors/$id",
+            { response ->
+                val resp = JSONObject(response)
+                val collector =  Coleccionista(
+                    id = resp.getInt("id"),
+                    name = resp.getString("name"),
+                    email = resp.getString("email"),
+                    telephone = resp.getString("telephone"))
+                onComplete(collector)
+            },
+            {
+                onError(it)
+            }))
+
     }
 
 
