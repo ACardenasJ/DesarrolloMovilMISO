@@ -48,7 +48,8 @@ class DetalleArtistaActivity : AppCompatActivity() {
                 val desBanda = viewModel.artista.value?.description
                 EDDesc.setText(desBanda.toString())
 
-                val releaseDateBanda = viewModel.artista.value?.creationDate
+                var releaseDateBanda = viewModel.artista.value?.creationDate
+                releaseDateBanda = releaseDateBanda?.split("T")?.get(0)
                 EDYear.setText(releaseDateBanda.toString())
             },
             2000 // value in milliseconds
