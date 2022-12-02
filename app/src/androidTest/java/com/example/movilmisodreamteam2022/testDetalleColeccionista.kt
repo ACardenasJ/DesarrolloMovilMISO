@@ -17,14 +17,13 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class testListarColeccionistas {
+class testDetalleColeccionista {
+
     @get:Rule
     val activityRuleMain = ActivityTestRule(MainActivity::class.java)
 
-
     @Test
-    fun testListarColeccionistas() {
-
+    fun testDetalleColeccionista() {
         Thread.sleep(3000)
         onView(withId(R.id.button_coleccionista_m)).perform(click())
         Thread.sleep(3000)
@@ -35,6 +34,7 @@ class testListarColeccionistas {
         val itemCount = recyclerView.adapter?.itemCount
         Thread.sleep(3000)
         check(itemCount!! > 0)
+        var Titulo_test = ""
         runOnUiThread {
             // Stuff that updates the UI
             val item1_view = recyclerView.findViewHolderForAdapterPosition(1)?.itemView
@@ -44,8 +44,11 @@ class testListarColeccionistas {
             check(!it1_Titulo?.text.isNullOrEmpty())
             //check(!it1_Desc?.text.isNullOrEmpty())
             //check(!it1_Tel?.text.isNullOrEmpty())
+            Titulo_test = it1_Titulo?.text.toString()
             recyclerView.findViewHolderForAdapterPosition(1)?.itemView?.performClick()
         }
+        Thread.sleep(3000)
+        onView(withId(R.id.lblDetalleColeccinistaNombreTxt)).check(matches(withText(Titulo_test.toString())))
         Thread.sleep(5000)
     }
 }

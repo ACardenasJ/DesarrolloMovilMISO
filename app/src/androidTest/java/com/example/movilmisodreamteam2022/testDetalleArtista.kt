@@ -17,35 +17,40 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class testListarColeccionistas {
+class testDetalleArtista {
+
     @get:Rule
     val activityRuleMain = ActivityTestRule(MainActivity::class.java)
 
-
     @Test
-    fun testListarColeccionistas() {
+    fun testDetalleArtista() {
 
         Thread.sleep(3000)
-        onView(withId(R.id.button_coleccionista_m)).perform(click())
+        onView(withId(R.id.button_artist_m)).perform(click())
         Thread.sleep(3000)
-        onView(withId(R.id.coleccionistasRv)).check(matches(isDisplayed()));
-        onView(withId(R.id.coleccionistasRv))
+        onView(withId(R.id.artistasRv)).check(matches(isDisplayed()));
+        onView(withId(R.id.artistasRv))
         val recyclerView =
-            activityRuleMain.activity.findViewById<RecyclerView>(R.id.coleccionistasRv)
+            activityRuleMain.activity.findViewById<RecyclerView>(R.id.artistasRv)
         val itemCount = recyclerView.adapter?.itemCount
         Thread.sleep(3000)
         check(itemCount!! > 0)
+        var Titulo_test = ""
+        var Desc_test = ""
         runOnUiThread {
             // Stuff that updates the UI
             val item1_view = recyclerView.findViewHolderForAdapterPosition(1)?.itemView
-            val it1_Titulo = item1_view?.findViewById<TextView>(R.id.tv_collec_title)
-            //val it1_Desc = item1_view?.findViewById<TextView>(R.id.tv_collec_desc)
-            //val it1_Tel =  item1_view?.findViewById<TextView>(R.id.tv_collec_phone)
+            val it1_Titulo = item1_view?.findViewById<TextView>(R.id.tv_artist_title)
+            val it1_Desc = item1_view?.findViewById<TextView>(R.id.tv_artist_desc)
             check(!it1_Titulo?.text.isNullOrEmpty())
-            //check(!it1_Desc?.text.isNullOrEmpty())
-            //check(!it1_Tel?.text.isNullOrEmpty())
+            check(!it1_Desc?.text.isNullOrEmpty())
+            Titulo_test = it1_Titulo?.text.toString()
+            Desc_test = it1_Desc?.text.toString()
             recyclerView.findViewHolderForAdapterPosition(1)?.itemView?.performClick()
         }
+        Thread.sleep(3000)
+        onView(withId(R.id.lblDetalleNombreTxt)).check(matches(withText(Titulo_test.toString())))
+        onView(withId(R.id.lblDetalleDescripcionTxt)).check(matches(withText(Desc_test.toString())))
         Thread.sleep(5000)
     }
 }
