@@ -44,6 +44,7 @@ class testDetalleArtista {
             val it1_Desc = item1_view?.findViewById<TextView>(R.id.tv_artist_desc)
             check(!it1_Titulo?.text.isNullOrEmpty())
             check(!it1_Desc?.text.isNullOrEmpty())
+            
             Titulo_test = it1_Titulo?.text.toString()
             Desc_test = it1_Desc?.text.toString()
             recyclerView.findViewHolderForAdapterPosition(1)?.itemView?.performClick()

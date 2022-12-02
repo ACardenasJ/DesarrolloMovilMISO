@@ -44,7 +44,7 @@ class testDetalleColeccionista {
             check(!it1_Titulo?.text.isNullOrEmpty())
             //check(!it1_Desc?.text.isNullOrEmpty())
             //check(!it1_Tel?.text.isNullOrEmpty())
-            
+
             Titulo_test = it1_Titulo?.text.toString()
             recyclerView.findViewHolderForAdapterPosition(1)?.itemView?.performClick()
         }
