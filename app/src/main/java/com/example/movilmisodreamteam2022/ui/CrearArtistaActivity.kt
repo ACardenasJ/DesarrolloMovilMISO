@@ -79,7 +79,7 @@ class CrearArtistaActivity : AppCompatActivity() {
             "name" to nombre,
             "image" to img_basic,
             "description" to desc,
-            "creationDate" to year+"-01-01T05:00:00.000Z"
+            "creationDate" to year
         )
 
         viewModel.crearArtista(JSONObject(postParams),

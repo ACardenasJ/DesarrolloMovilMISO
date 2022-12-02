@@ -32,7 +32,7 @@
             android:id="@+id/lblYear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Año de nacimiento"
+            android:text="Fecha de nacimiento"
             android:textStyle="italic"
             android:textSize="20dp"
             />
@@ -40,8 +40,8 @@
             android:id="@+id/EDYear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="Introducir el año de nacimiento del artista"
+            android:ems="10"
+            android:inputType="date"
             />
         <TextView
             android:id="@+id/lblSong"
@@ -102,10 +102,6 @@
             android:gravity="center"
             />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
         <EditText
             android:id="@+id/lblRequestCrearArtista"
             android:layout_width="match_parent"
@@ -114,5 +110,6 @@
             android:visibility="gone"
             android:textSize="20dp"
             android:textStyle="italic" />
+
     </LinearLayout>
 </ScrollView>

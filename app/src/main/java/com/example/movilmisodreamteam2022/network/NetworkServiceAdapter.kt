@@ -54,10 +54,10 @@ class NetworkServiceAdapter constructor(context: Context) {
     fun postArtista(body: JSONObject, onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
         requestQueue.add(postRequest("bands",
             body,
-            Response.Listener<JSONObject> { response ->
+            { response ->
                 onComplete(response)
             },
-            Response.ErrorListener {
+            {
                 onError(it)
             }))
     }

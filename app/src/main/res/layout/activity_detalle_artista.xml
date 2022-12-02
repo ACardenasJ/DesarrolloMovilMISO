@@ -72,6 +72,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="italic"
+            android:ems="10"
+            android:inputType="date"
             android:textSize="20dp" />
         <Space
             android:layout_width="match_parent"
