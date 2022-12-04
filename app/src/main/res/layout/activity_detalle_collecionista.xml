@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:text="Nombre del Coleccionista:"
             android:textStyle="bold"
-            android:textSize="20dp" />
+            android:textSize="20sp"/>
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:text="Email de contacto:"
             android:textStyle="bold"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:text="Numero de contacto:"
             android:textStyle="bold"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:textSize="20dp" />
+            android:textSize="20sp"/>
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>

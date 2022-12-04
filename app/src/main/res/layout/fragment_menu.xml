@@ -14,21 +14,22 @@
     <Button
         android:id="@+id/button_artist_m"
         android:layout_width="match_parent"
-        android:textSize="10pt"
+        android:textSize="30sp"
         android:layout_height="wrap_content"
-        android:text="Artista"/>
+        android:text="Artista"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/button_album_m"
         android:layout_width="match_parent"
-        android:textSize="10pt"
+        android:textSize="30sp"
         android:layout_height="wrap_content"
         android:text="Album"/>
 
     <Button
         android:id="@+id/button_coleccionista_m"
         android:layout_width="match_parent"
-        android:textSize="10pt"
+        android:textSize="30sp"
         android:layout_height="wrap_content"
         android:text="Coleccionista"/>
 

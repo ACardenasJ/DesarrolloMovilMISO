@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Nombre del coleccionista"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic" />
 
         <EditText
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="e-mail"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic" />
 
         <EditText
@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Numero de celular del coleccionista"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic" />
 
         <EditText
@@ -90,7 +90,7 @@
             android:gravity="center"
             android:text="Crear"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:textSize="25sp" />
 
         <Space
             android:layout_width="match_parent"
