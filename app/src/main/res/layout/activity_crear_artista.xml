@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
+            android:autofillHints="name"
             android:hint="Introducir el nombre del artista"
             />
         <TextView
@@ -42,6 +43,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
+            android:autofillHints="creditCardExpirationDate"
             android:hint="Ingresar Fecha de Inicio del Artista o la Banda"
             />
         <TextView
@@ -58,6 +60,7 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:hint="Introducir el nombre de la canción del artista"
+            android:autofillHints="name"
             />
         <TextView
             android:id="@+id/lblGenero"
@@ -87,6 +90,7 @@
             android:layout_height="wrap_content"
             android:inputType="text|textMultiLine"
             android:hint="Introducir la descripción"
+            android:autofillHints="name"
             />
         <Space
             android:layout_width="match_parent"
@@ -109,7 +113,9 @@
             android:layout_height="match_parent"
             android:text=""
             android:visibility="gone"
+            android:inputType="text"
             android:textSize="20dp"
+            android:autofillHints="name"
             android:textStyle="italic" />
 
     </LinearLayout>

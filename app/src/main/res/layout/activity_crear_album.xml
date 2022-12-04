@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Introduce aquí el nombre del álbum"
+            android:autofillHints="name"
             android:inputType="text" />
 
         <Space
@@ -49,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Introduce aquí el año de lanzamiento del álbum"
+            android:autofillHints="creditCardExpirationDate"
             android:inputType="number" />
 
         <Space
@@ -85,6 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Introduce aquí la Descripción"
+            android:autofillHints="name"
             android:inputType="text|textMultiLine" />
 
         <Space
@@ -127,9 +130,10 @@
             android:id="@+id/lblRequestCrearAlbum"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text=""
             android:visibility="gone"
             android:textSize="20dp"
+            android:autofillHints="name"
+            android:inputType="text"
             android:textStyle="italic" />
     </LinearLayout>
 </ScrollView>

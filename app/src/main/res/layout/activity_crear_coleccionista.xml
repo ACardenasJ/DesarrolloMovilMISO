@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Introduce aquí el nombre del coleccionista"
+            android:autofillHints="name"
             android:inputType="text" />
 
         <Space
@@ -43,7 +44,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="email"
+            android:text="e-mail"
             android:textSize="20dp"
             android:textStyle="italic" />
 
@@ -51,8 +52,9 @@
             android:id="@+id/EDEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Introduce aquí el email del coleccionista"
-            android:inputType="text" />
+            android:hint="Introduce aquí el e-mail del coleccionista"
+            android:autofillHints="emailAddress"
+            android:inputType="textEmailAddress" />
 
         <Space
             android:layout_width="match_parent"
@@ -71,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Introduce aquí el numero de celular"
+            android:autofillHints="phone"
             android:inputType="number" />
 
 
@@ -98,6 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"
+            android:autofillHints="name"
             android:inputType="number" />
 
     </LinearLayout>
