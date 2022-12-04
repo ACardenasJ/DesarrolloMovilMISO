@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Nombre del album"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic" />
 
         <EditText
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Año de lanzamiento del álbum"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic" />
 
         <EditText
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Genero"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic" />
 
         <Spinner
@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Descripción"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic" />
 
         <EditText
@@ -99,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Sello Discografico"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic" />
 
         <Spinner
@@ -120,7 +120,7 @@
             android:gravity="center"
             android:text="Crear"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:textSize="25sp" />
 
         <Space
             android:layout_width="match_parent"
@@ -131,7 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:autofillHints="name"
             android:inputType="text"
             android:textStyle="italic" />

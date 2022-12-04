@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Nombre"
             android:textStyle="italic"
-            android:textSize="20dp"
+            android:textSize="20sp"
             />
         <EditText
             android:id="@+id/EDNombre"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:text="Fecha de Inicio del Artista o la Banda"
             android:textStyle="italic"
-            android:textSize="20dp"
+            android:textSize="20sp"
             />
         <EditText
             android:id="@+id/EDYear"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="Canción favorita hecha por el artista"
             android:textStyle="italic"
-            android:textSize="20dp"
+            android:textSize="20sp"
             />
         <EditText
             android:id="@+id/EDSong"
@@ -68,13 +68,13 @@
             android:layout_height="wrap_content"
             android:text="Género"
             android:textStyle="italic"
-            android:textSize="20dp"
+            android:textSize="20sp"
             />
 
         <Spinner
             android:id="@+id/spinnerArtistaGenero"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="68dp" />
 
         <TextView
             android:id="@+id/lblDesc"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:text="Descripción"
             android:textStyle="italic"
-            android:textSize="20dp"
+            android:textSize="20sp"
             />
         <EditText
             android:id="@+id/EDDesc"
@@ -100,8 +100,8 @@
             android:layout_width="150dp"
             android:layout_height="70dp"
             android:layout_gravity="right"
-            android:text="Crear"
-            android:textSize="15dp"
+            android:text="@string/crear"
+            android:textSize="25sp"
             android:textColor="@color/white"
             android:backgroundTint="@color/orange"
             android:gravity="center"
@@ -114,7 +114,7 @@
             android:text=""
             android:visibility="gone"
             android:inputType="text"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:autofillHints="name"
             android:textStyle="italic" />
 

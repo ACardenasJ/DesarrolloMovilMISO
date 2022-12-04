@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="Nombre del Artista o la Banda:"
             android:textStyle="bold"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:text="Descripción del Artista o la Banda:"
             android:textStyle="bold"
-            android:textSize="20dp" />
+            android:textSize="20sp"/>
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="italic"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:text="Fecha de Inicio del Artista o la Banda:"
             android:textStyle="bold"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
@@ -70,7 +70,7 @@
         <TextView
             android:id="@+id/lblDetalleFechaDeInicioTxt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:textStyle="italic"
             android:ems="10"
             android:inputType="date"
